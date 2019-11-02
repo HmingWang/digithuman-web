@@ -1,1 +1,39 @@
-<p>file-list works!</p>
+<div>
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+      <td>
+        <a>Action 一 {{ data.name }}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div>
+  <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload" [nzMultiple]="true" [nzLimit]="10" [nzSize]="1000">
+    <button nz-button class="btnUpload"><i nz-icon nzType="upload"></i><span>上传文件</span></button>
+  </nz-upload>
+  <button nz-button [nzType]="'primary'" [nzLoading]="uploading" (click)="handleUpload()" [disabled]="fileList.length == 0" style="margin-top: 16px" class="btnUpload">
+    {{ uploading ? '正在上传...' : '开始上传' }}
+  </button>
+
+<!--  <div class="clearfix">-->
+<!--    <nz-upload nzAction={{apiUrl}} nzListType="picture" nzMultiple="true" nzLimit="10" nzSize="1000" nzName="files[]">-->
+<!--      <button nz-button><i nz-icon nzType="upload"></i><span>上传文件</span></button>-->
+<!--    </nz-upload>-->
+<!--  </div>-->
+</div>
