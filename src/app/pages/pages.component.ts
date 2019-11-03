@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })
-export class PagesComponent implements OnInit {
-  isCollapsed = false;
-  constructor() { }
+export class PagesComponent implements OnInit  {
+  isCollapsed = true;
 
-  ngOnInit() {
+  constructor() {
+
   }
 
+  ngOnInit() {
+
+  }
 }

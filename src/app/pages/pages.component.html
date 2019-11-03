@@ -1,10 +1,9 @@
 <nz-layout class="app-layout">
   <nz-header>
     <div class="app-header">
-      <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+      <span class="header-trigger" (click)="isCollapsed=!isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
       </span>
-
       <app-header></app-header>
     </div>
   </nz-header>
@@ -16,25 +15,71 @@
               [(nzCollapsed)]="isCollapsed"
               [nzTrigger]="null">
 
-      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '首页' : ''" nzSelected>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="this.isCollapsed">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '首页' : ''" nzSelected nzMatchRouter>
           <i nz-icon nzType="home"></i>
           <span routerLink="/welcome">首页</span>
         </li>
-        <li nz-submenu nzOpen nzTitle="文本分析" nzIcon="dashboard">
+        <li nz-submenu nzTitle="文件管理" nzIcon="dashboard">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/file-list">文件上传</a>
+              <a routerLink="/file-upload">文件上传</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a>Workplace</a>
+              <a routerLink="/file-list">文件列表</a>
+            </li>
+
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="数据分析" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">数据透视</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">字频统计</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">词频统计</a>
             </li>
           </ul>
         </li>
-        <li nz-submenu nzOpen nzTitle="用户管理" nzIcon="form">
+        <li nz-submenu nzTitle="特征分析" nzIcon="dashboard">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a>用户注册</a>
+              <a routerLink="/###">TF-IDF分析</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">颜色特征</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">季节特征</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="词库管理" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">分词词库</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">特征词库</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/###">去停词库</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="用户管理" nzIcon="form">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>修改个人信息</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>修改密码</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>注销</a>
             </li>
           </ul>
         </li>

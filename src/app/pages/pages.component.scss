@@ -12,7 +12,7 @@
 .menu-sidebar {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   box-shadow: 2px 0 6px rgba(0,21,41,.35);
 }
 
@@ -24,16 +24,13 @@
   transition: all .3s,padding 0s;
   background-color: #001529;
 }
-
-.trigger:hover {
-  color: #1890ff;
-}
-
 .trigger {
   color: #fff;
 }
 
-
+.trigger:hover {
+  color: #1890ff;
+}
 
 nz-header {
   padding: 0;
@@ -53,13 +50,12 @@ nz-header {
 nz-footer {
   text-align: center;
 }
-nz-content {
-  margin: 24px;
-
-}
-
-.inner-content {
-  padding: 24px;
-  background: #fff;
-  height: 100%;
-}
+//nz-content {
+//  margin: 24px;
+//}
+//
+//.inner-content {
+//  padding: 24px;
+//  //background: #cecece;
+//  //height: 100%;
+//}

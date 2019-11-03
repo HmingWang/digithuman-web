@@ -1,0 +1,52 @@
+import { Component, OnInit } from '@angular/core';
+import {NzMessageService, UploadFile} from 'ng-zorro-antd';
+import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
+import {BASE_URL} from '../../app.globals';
+import {filter} from 'rxjs/operators';
+
+@Component({
+  selector: 'app-file-upload',
+  templateUrl: './file-upload.component.html',
+  styleUrls: ['./file-upload.component.scss']
+})
+export class FileUploadComponent implements OnInit {
+  uploading = false;
+  fileList: UploadFile[] = [];
+  constructor(private http: HttpClient, private msg: NzMessageService ) { }
+
+  ngOnInit() {
+    this.fileList = [];
+
+  }
+  beforeUpload = (file: UploadFile): boolean => {
+    this.fileList = this.fileList.concat(file);
+    return false;
+  }
+
+  handleUpload(): void {
+    const formData = new FormData();
+    // tslint:disable-next-line:no-any
+    this.fileList.forEach((file: any) => {
+      formData.append('files[]', file);
+    });
+    this.uploading = true;
+    // You can use any AJAX library you like
+    const req = new HttpRequest('POST', BASE_URL + '/api/upload', formData, {
+      // reportProgress: true
+    });
+    this.http
+      .request(req)
+      .pipe(filter(e => e instanceof HttpResponse))
+      .subscribe(
+        () => {
+          this.uploading = false;
+          this.fileList = [];
+          this.msg.success('上传成功！');
+        },
+        () => {
+          this.uploading = false;
+          this.msg.error('上传失败！');
+        }
+      );
+  }
+}
