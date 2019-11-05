@@ -20,7 +20,7 @@
         <td *ngFor="let col of cols">
           {{row[col.field]}}
         </td>
-        <td><button nz-button nz-popconfirm nzTitle="Sure to delete?" (nzOnConfirm)="deleteRow(row.id)"><i nz-icon nzType="delete"></i>删除</button></td>
+        <td><button nz-button nz-popconfirm nzTitle="确定要删除此文件吗？" (nzOnConfirm)="deleteRow(row.id)"><i nz-icon nzType="delete"></i>删除</button></td>
       </tr>
       </tbody>
     </nz-table>

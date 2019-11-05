@@ -41,6 +41,11 @@ export class FileListComponent implements OnInit {
 
   deleteRow(id: bigint) {
     console.log('delete row by id ' + id);
-    this.fileStoreService.deleteFileById(id);
+    this.fileStoreService.deleteFileById(id).subscribe((res) => {
+      console.log('del ok', res);
+      this.getFileList();
+    }, (err) => {
+      console.log('del err', err);
+    });
   }
 }
