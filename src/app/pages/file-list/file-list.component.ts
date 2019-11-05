@@ -13,16 +13,18 @@ export class FileListComponent implements OnInit {
   owner = 'whaim';
   cols = [];
   loading = true;
+
   constructor(private fileStoreService: FileStoreService) {
   }
 
-  getData() {
+  getFileList() {
     this.loading = true;
     this.fileStoreService.getFileList(this.owner).subscribe((data: any) => {
       this.listOfData = data;
       this.loading = false;
     });
   }
+
 
   ngOnInit() {
     this.listOfData = [];
@@ -34,6 +36,11 @@ export class FileListComponent implements OnInit {
       {field: 'encoding', header: '编码'},
       {field: 'uptime', header: '更新时间'},
     ];
-    this.getData();
+    this.getFileList();
+  }
+
+  deleteRow(id: bigint) {
+    console.log('delete row by id ' + id);
+    this.fileStoreService.deleteFileById(id);
   }
 }

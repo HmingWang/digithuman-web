@@ -31,7 +31,7 @@ export class FileUploadComponent implements OnInit {
     });
     this.uploading = true;
     // You can use any AJAX library you like
-    const req = new HttpRequest('POST', BASE_URL + '/api/upload', formData, {
+    const req = new HttpRequest('POST', BASE_URL + '/api/filestore', formData, {
       // reportProgress: true
     });
     this.http

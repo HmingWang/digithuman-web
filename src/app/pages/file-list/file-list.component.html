@@ -4,24 +4,23 @@
   <nz-card [nzBordered]="false" nzTitle="文件列表" [nzExtra]="extraTemplate">
     <nz-table #basicTable
               nzShowPagination
-              nzShowSizeChanger
               [nzData]="listOfData"
               nzSize="small"
               nzFrontPagination="true">
       <thead>
       <tr>
-        <th nzShowSort [nzSortKey]=col.field *ngFor="let col of cols">
+        <th [nzSortKey]=col.field *ngFor="let col of cols">
           {{col.header}}
         </th>
         <th>操作</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let f of basicTable.data">
+      <tr *ngFor="let row of basicTable.data">
         <td *ngFor="let col of cols">
-          {{f[col.field]}}
+          {{row[col.field]}}
         </td>
-        <td><a><i nz-icon nzType="delete"></i> 删除</a></td>
+        <td><button nz-button nz-popconfirm nzTitle="Sure to delete?" (nzOnConfirm)="deleteRow(row.id)"><i nz-icon nzType="delete"></i>删除</button></td>
       </tr>
       </tbody>
     </nz-table>
