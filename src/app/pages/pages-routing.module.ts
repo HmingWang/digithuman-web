@@ -4,6 +4,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {FileListComponent} from './file-list/file-list.component';
 import {PagesComponent} from './pages.component';
 import {FileUploadComponent} from './file-upload/file-upload.component';
+import {BuildingComponent} from './building/building.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
       {path: 'welcome', component: WelcomeComponent},
       {path: 'file-list', component: FileListComponent},
       {path: 'file-upload', component: FileUploadComponent},
+      {path: 'building', component: BuildingComponent},
     ]
   },
 ];

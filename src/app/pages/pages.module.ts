@@ -8,10 +8,11 @@ import {SharedModule} from '../shared/shared.module';
 import { PagesComponent } from './pages.component';
 import {ServicesModule} from '../services/services.module';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { BuildingComponent } from './building/building.component';
 
 
 @NgModule({
-  declarations: [WelcomeComponent, FileListComponent, PagesComponent, FileUploadComponent],
+  declarations: [WelcomeComponent, FileListComponent, PagesComponent, FileUploadComponent, BuildingComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
