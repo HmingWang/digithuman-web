@@ -13,11 +13,14 @@ export class FileListComponent implements OnInit {
   owner = 'whaim';
   cols = [];
   loading = true;
+  isVisible = false;
+  fileName = '';
+  content = '';
 
   constructor(private fileStoreService: FileStoreService) {
   }
 
-  getFileList() {
+  getData() {
     this.loading = true;
     this.fileStoreService.getFileList(this.owner).subscribe((data: any) => {
       this.listOfData = data;
@@ -36,16 +39,41 @@ export class FileListComponent implements OnInit {
       {field: 'encoding', header: '编码'},
       {field: 'uptime', header: '更新时间'},
     ];
-    this.getFileList();
+    this.getData();
   }
 
-  deleteRow(id: bigint) {
+  deleteFile(id: bigint) {
     console.log('delete row by id ' + id);
     this.fileStoreService.deleteFileById(id).subscribe((res) => {
       console.log('del ok', res);
-      this.getFileList();
+      this.getData();
     }, (err) => {
       console.log('del err', err);
     });
+  }
+
+  showFile(id: any, filename: string) {
+    this.isVisible = true;
+    this.fileName = filename;
+    this.fileStoreService.getFile(id).subscribe(res => {
+      console.log('get file content:', res);
+      this.content = res['content'];
+      this.content = this.content.substr(0, 1000);
+    }, err => {
+      console.log('get file content error. ', err);
+    });
+    console.log('2:' + this.content);
+  }
+
+  showFileFeature(id: any) {
+    return 0;
+  }
+
+  handleOk(): void {
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
   }
 }

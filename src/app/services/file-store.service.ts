@@ -15,7 +15,11 @@ export class FileStoreService {
   getFileList(owner: string) {
     const params = new HttpParams()
       .append('owner', `${owner}`);
-    return this.http.get(`${BASE_URL + '/api/getfilelist'}`, {params});
+    return this.http.get(`${BASE_URL + '/api/filestore'}`, {params});
+  }
+
+  getFile(id: bigint) {
+    return this.http.get(BASE_URL + '/api/filestore/' + id);
   }
 
   deleteFileById(id: bigint) {
