@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {WelcomeComponent} from './welcome/welcome.component';
-import {FileListComponent} from './file-list/file-list.component';
+import {FileListComponent} from '../shared/file-list/file-list.component';
 import {PagesComponent} from './pages.component';
 import {FileUploadComponent} from './file-upload/file-upload.component';
 import {BuildingComponent} from './building/building.component';

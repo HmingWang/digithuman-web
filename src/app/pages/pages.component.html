@@ -20,21 +20,26 @@
           <i nz-icon nzType="home"></i>
           <span routerLink="/welcome">首页</span>
         </li>
-        <li nz-submenu nzTitle="文件管理" nzIcon="dashboard">
+        <li nz-submenu nzTitle="数据管理" nzIcon="folder">
           <ul>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/file-upload">文件上传</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/file-list">文件列表</a>
+              <a routerLink="/file-manager">文件管理</a>
             </li>
-
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/search">数据检索</a>
+            </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="数据分析" nzIcon="dashboard">
+        <li nz-submenu nzTitle="特征分析" nzIcon="line-chart">
           <ul>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/building">数据透视</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/building">文本分词</a>
             </li>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/building">字频统计</a>
@@ -42,35 +47,34 @@
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/building">词频统计</a>
             </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/building">自动摘要</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/building">特征词提取</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/building">简繁转换</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/building">文本聚类</a>
+            </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="特征分析" nzIcon="dashboard">
+        <li nz-submenu nzTitle="配置管理" nzIcon="profile">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">TF-IDF分析</a>
+              <a routerLink="/building">分词算法</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">颜色特征</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">季节特征</a>
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu nzTitle="词库管理" nzIcon="dashboard">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">分词词库</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">特征词库</a>
+              <a routerLink="/building">词库定义</a>
             </li>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/building">去停词库</a>
             </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="用户管理" nzIcon="form">
+        <li nz-submenu nzTitle="用户管理" nzIcon="user">
           <ul>
             <li nz-menu-item nzMatchRouter>
               <a>修改个人信息</a>
