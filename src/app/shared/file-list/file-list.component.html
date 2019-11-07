@@ -1,4 +1,3 @@
-  <nz-card [nzBordered]="false" nzTitle="文件列表" [nzExtra]="extraTemplate">
     <nz-spin [nzSpinning]="isSpinning" nzSize="large" nzTip="load...">
       <nz-table #basicTable
                 nzShowPagination
@@ -29,15 +28,13 @@
         </tbody>
       </nz-table>
     </nz-spin>
-  </nz-card>
 
-<div>
+
   <nz-modal [(nzVisible)]="isVisibleFileContent" [nzTitle]="fileName" (nzOnCancel)="handleCancel()"
             (nzOnOk)="handleOk()" nzWidth="50%" nzFooter=null>
     <nz-tag nzColor="red">只显示前1000字</nz-tag>
     <p>{{content}}</p>
   </nz-modal>
-</div>
 
 <!--<div>-->
 <!--  <nz-modal [(nzVisible)]="isVisibleFileFeature" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="50%"-->

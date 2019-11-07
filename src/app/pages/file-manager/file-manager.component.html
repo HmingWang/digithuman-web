@@ -1,3 +1,13 @@
 <div>
+  <nz-card [nzBordered]="false" nzTitle="文件管理" [nzExtra]="extraTemplate">
+      <p>上传限制：文件大小1000KB 文件类型：TXT （测试期间每天定期清理数据，请勿上传重要文件）</p>
+      <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload" [nzMultiple]="true" [nzLimit]="10" [nzSize]="1000" >
+        <button nz-button class="btnUpload"><i nz-icon nzType="upload"></i><span>上传文件</span></button>
+        <button nz-button [nzType]="'primary'" [nzLoading]="uploading" (click)="handleUpload()" [disabled]="fileList.length == 0" style="margin-top: 16px" class="btnUpload">
+          {{ uploading ? '正在上传...' : '开始上传' }}
+        </button>
+      </nz-upload>
+    <nz-divider></nz-divider>
   <app-file-list></app-file-list>
+  </nz-card>
 </div>

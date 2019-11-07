@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   fileName = '';
   content = '';
 
+
   constructor(private fileStoreService: FileStoreService) {
   }
 
