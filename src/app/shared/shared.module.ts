@@ -3,10 +3,12 @@ import { HeaderComponent } from './header/header.component';
 import {CommonModule} from '@angular/common';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {FileListComponent} from './file-list/file-list.component';
+import {FileUploadComponent} from './file-upload/file-upload.component';
 
 const sharedComponents = [
   HeaderComponent,
-  FileListComponent
+  FileListComponent,
+  FileUploadComponent
 ];
 
 const sharedModules = [

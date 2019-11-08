@@ -11,7 +11,7 @@ import {FileFeature} from '../../models/file-feature';
 })
 export class FileListComponent implements OnInit {
 
-  listOfData = Array<FileStore>();
+  listOfData: FileStore[] = [];
   owner = 'whaim';
   cols = [];
   loading = true;
@@ -22,6 +22,11 @@ export class FileListComponent implements OnInit {
   isSpinning = false;
   fileFeatureItem: FileFeature = new FileFeature();
   colDetails = [];
+  isAllDisplayDataChecked = false;
+  isIndeterminate = false;
+  numberOfChecked = 0;
+  mapOfCheckedId: { [key: string]: boolean } = {};
+  private value: any;
 
   constructor(private fileStoreService: FileStoreService, private fileFeatureService: FileFeatureService) {
   }
@@ -113,5 +118,19 @@ export class FileListComponent implements OnInit {
   handleCancel(): void {
     this.isVisibleFileContent = false;
     this.isVisibleFileFeature = false;
+  }
+
+  checkAll($event: boolean) {
+    this.listOfData.forEach(item => (this.mapOfCheckedId[item.id] = this.value));
+    this.refreshStatus();
+  }
+
+  refreshStatus() {
+    this.isAllDisplayDataChecked = this.listOfData
+      .every(item => this.mapOfCheckedId[item.id]);
+    this.isIndeterminate =
+      this.listOfData.some(item => this.mapOfCheckedId[item.id]) &&
+      !this.isAllDisplayDataChecked;
+    this.numberOfChecked = this.listOfData.filter(item => this.mapOfCheckedId[item.id]).length;
   }
 }

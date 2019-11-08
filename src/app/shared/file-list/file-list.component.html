@@ -1,11 +1,16 @@
-    <nz-spin [nzSpinning]="isSpinning" nzSize="large" nzTip="load...">
       <nz-table #basicTable
                 nzShowPagination
                 [nzData]="listOfData"
                 nzSize="small"
-                nzFrontPagination="true">
+                >
         <thead>
         <tr>
+          <th
+            nzShowCheckbox
+            [(nzChecked)]="isAllDisplayDataChecked"
+            [nzIndeterminate]="isIndeterminate"
+            (nzCheckedChange)="checkAll($event)"
+          ></th>
           <th [nzSortKey]=col.field *ngFor="let col of cols">
             {{col.header}}
           </th>
@@ -14,6 +19,10 @@
         </thead>
         <tbody>
         <tr *ngFor="let row of basicTable.data">
+          <td
+            nzShowCheckbox
+            (nzCheckedChange)="refreshStatus()"
+          ></td>
           <td *ngFor="let col of cols">
             {{row[col.field]}}
           </td>
@@ -27,7 +36,6 @@
         </tr>
         </tbody>
       </nz-table>
-    </nz-spin>
 
 
   <nz-modal [(nzVisible)]="isVisibleFileContent" [nzTitle]="fileName" (nzOnCancel)="handleCancel()"
