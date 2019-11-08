@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NzMessageService, UploadFile} from 'ng-zorro-antd';
 import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
 import {BASE_URL} from '../../app.globals';
@@ -12,16 +12,21 @@ import {filter} from 'rxjs/operators';
 export class FileUploadComponent implements OnInit {
   uploading = false;
   fileList: UploadFile[] = [];
-  constructor(private http: HttpClient, private msg: NzMessageService ) { }
+  isVisible = false;
+
+  constructor(private http: HttpClient, private msg: NzMessageService) {
+  }
 
   ngOnInit() {
     this.fileList = [];
 
   }
+
   beforeUpload = (file: UploadFile): boolean => {
     this.fileList = this.fileList.concat(file);
     return false;
-  }
+  };
+
 
   handleUpload(): void {
     const formData = new FormData();
@@ -48,5 +53,9 @@ export class FileUploadComponent implements OnInit {
           this.msg.error('上传失败！');
         }
       );
+  }
+
+  handleCancel() {
+    this.isVisible = false;
   }
 }

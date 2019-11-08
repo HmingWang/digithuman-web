@@ -5,6 +5,8 @@ import {PagesComponent} from './pages.component';
 import {BuildingComponent} from './building/building.component';
 import {FileManagerComponent} from './file-manager/file-manager.component';
 import {SearchComponent} from './search/search.component';
+import {TestCommand} from '@angular/cli/commands/test-impl';
+import {TestPageComponent} from './test-page/test-page.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,7 @@ const routes: Routes = [
       {path: 'file-manager', component: FileManagerComponent},
       {path: 'building', component: BuildingComponent},
       {path: 'search', component: SearchComponent},
+      {path: 'test', component: TestPageComponent}
     ]
   },
 ];

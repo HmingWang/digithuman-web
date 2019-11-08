@@ -13,6 +13,7 @@ import {FILEFEATURE_HEADER, FILESTORE_HEADER} from '../../app.globals';
 export class FileListComponent implements OnInit {
 
   listOfData: FileStore[] = [];
+  listOfDisplayData: FileStore[] = [];
   owner = 'whaim';
   cols = [];
   loading = true;
@@ -27,7 +28,6 @@ export class FileListComponent implements OnInit {
   isIndeterminate = false;
   numberOfChecked = 0;
   mapOfCheckedId: { [key: string]: boolean } = {};
-  private value: any;
 
   constructor(private fileStoreService: FileStoreService, private fileFeatureService: FileFeatureService) {
   }
@@ -65,26 +65,26 @@ export class FileListComponent implements OnInit {
     this.fileStoreService.getFile(id).subscribe(res => {
       console.log('get file content:', res);
       this.content = res['content'];
-      this.content = this.content.substr(0, 1000);
+      // this.content = this.content.substr(0, 1000);
     }, err => {
       console.log('get file content error. ', err);
     });
     console.log('2:' + this.content);
   }
 
-  showFileFeature(id: any, filename: string) {
-    this.isSpinning = true;
-    this.fileFeatureService.getFileFeature(id).subscribe(item => {
-      this.isSpinning = true;
-      this.fileName = filename;
-      this.fileFeatureItem = item as FileFeature;
-      this.isSpinning = false;
-      this.isVisibleFileFeature = true;
-      console.log(this.fileFeatureItem);
-    }, error => {
-      console.log('get filefeature error', error);
-    });
-  }
+  // showFileFeature(id: any, filename: string) {
+  //   this.isSpinning = true;
+  //   this.fileFeatureService.getFileFeature(id).subscribe(item => {
+  //     this.isSpinning = true;
+  //     this.fileName = filename;
+  //     this.fileFeatureItem = item as FileFeature;
+  //     this.isSpinning = false;
+  //     this.isVisibleFileFeature = true;
+  //     console.log(this.fileFeatureItem);
+  //   }, error => {
+  //     console.log('get filefeature error', error);
+  //   });
+  // }
 
   handleOk(): void {
     this.isVisibleFileContent = false;
@@ -96,16 +96,21 @@ export class FileListComponent implements OnInit {
     this.isVisibleFileFeature = false;
   }
 
-  checkAll($event: boolean) {
-    this.listOfData.forEach(item => (this.mapOfCheckedId[item.id] = this.value));
+  currentPageDataChange($event: FileStore[]): void {
+    this.listOfDisplayData = $event;
+    this.refreshStatus();
+  }
+
+  checkAll(value: boolean) {
+    this.listOfDisplayData.forEach(item => (this.mapOfCheckedId[item.id] = value));
     this.refreshStatus();
   }
 
   refreshStatus() {
-    this.isAllDisplayDataChecked = this.listOfData
+    this.isAllDisplayDataChecked = this.listOfDisplayData
       .every(item => this.mapOfCheckedId[item.id]);
     this.isIndeterminate =
-      this.listOfData.some(item => this.mapOfCheckedId[item.id]) &&
+      this.listOfDisplayData.some(item => this.mapOfCheckedId[item.id]) &&
       !this.isAllDisplayDataChecked;
     this.numberOfChecked = this.listOfData.filter(item => this.mapOfCheckedId[item.id]).length;
   }
