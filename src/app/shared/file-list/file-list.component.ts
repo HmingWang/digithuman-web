@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FileStoreService} from '../../services/file-store.service';
 import {FileStore} from '../../models/file-store';
 import {FileFeatureService} from '../../services/file-feature.service';
-import {FileFeature} from '../../models/file-feature';
 import {FILEFEATURE_HEADER, FILESTORE_HEADER} from '../../app.globals';
 
 @Component({
@@ -15,19 +14,18 @@ export class FileListComponent implements OnInit {
   listOfData: FileStore[] = [];
   listOfDisplayData: FileStore[] = [];
   owner = 'whaim';
-  cols = [];
+  cols = FILESTORE_HEADER;
   loading = true;
   isVisibleFileContent = false;
   isVisibleFileFeature = false;
   fileName = '';
   content = '';
-  isSpinning = false;
-  fileFeatureItem: FileFeature = new FileFeature();
-  colDetails = [];
+  colDetails = FILEFEATURE_HEADER;
   isAllDisplayDataChecked = false;
   isIndeterminate = false;
   numberOfChecked = 0;
   mapOfCheckedId: { [key: string]: boolean } = {};
+  listOfCheckedId: number[] = [];
 
   constructor(private fileStoreService: FileStoreService, private fileFeatureService: FileFeatureService) {
   }
@@ -42,10 +40,6 @@ export class FileListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.listOfData = [];
-    this.cols = FILESTORE_HEADER;
-
-    this.colDetails = FILEFEATURE_HEADER;
     this.getData();
   }
 
@@ -113,5 +107,6 @@ export class FileListComponent implements OnInit {
       this.listOfDisplayData.some(item => this.mapOfCheckedId[item.id]) &&
       !this.isAllDisplayDataChecked;
     this.numberOfChecked = this.listOfData.filter(item => this.mapOfCheckedId[item.id]).length;
+    this.listOfCheckedId = [...this.listOfData.filter(it => this.mapOfCheckedId[it.id]).keys()];
   }
 }

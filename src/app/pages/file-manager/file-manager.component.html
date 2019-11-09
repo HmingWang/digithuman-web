@@ -1,8 +1,26 @@
 <div>
-  <nz-card [nzBordered]="false" nzTitle="文件管理" [nzExtra]="extraTemplate">
-    <button nz-button><i nz-icon nzType="upload"></i>上传</button>
-    <button nz-button><i nz-icon nzType="delete"></i>删除</button>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="folder"></i><span>数据管理</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>文件管理</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+<div>
+  <nz-card nzBordered="false">
+    <button nz-button (click)="onFileUpload()"><i nz-icon nzType="upload"></i>上传</button>
+    <button nz-button (click)="onDelete()"><i nz-icon nzType="delete"></i>删除</button>
     <nz-divider></nz-divider>
   <app-file-list></app-file-list>
   </nz-card>
 </div>
+
+<nz-modal [(nzVisible)]="isVisibleFileUpload" nzTitle="文件上传" (nzOnCancel)="handleCancel()"
+          (nzOnOk)="handleOk()" nzWidth="50%" nzFooter=null>
+<app-file-upload></app-file-upload>
+</nz-modal>

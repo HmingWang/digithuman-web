@@ -12,7 +12,6 @@ import {filter} from 'rxjs/operators';
 export class FileUploadComponent implements OnInit {
   uploading = false;
   fileList: UploadFile[] = [];
-  isVisible = false;
 
   constructor(private http: HttpClient, private msg: NzMessageService) {
   }
@@ -53,9 +52,5 @@ export class FileUploadComponent implements OnInit {
           this.msg.error('上传失败！');
         }
       );
-  }
-
-  handleCancel() {
-    this.isVisible = false;
   }
 }

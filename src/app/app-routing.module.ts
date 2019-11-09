@@ -1,13 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  // { path: '', pathMatch: 'full', redirectTo: '/' },
-  { path: '', loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule) },
-  // { path: 'fileupload', loadChildren: () => import('./pages/fileupload/fileupload.module')
-  //     .then(m => m.FileuploadModule) }
-  // {path: 'welcome', component: WelcomeComponent},
+  {path: '', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
+
 
 ];
 
@@ -15,4 +11,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
