@@ -1,5 +1,26 @@
 <div>
-  <nz-card [nzBordered]="false" nzTitle="文件列表" [nzExtra]="extraTemplate">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="folder"></i><span>数据管理</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>文件检索</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+<div>
+  <nz-card [nzBordered]="false">
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input placeholder="检索文本内容" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+    </ng-template>
+    <nz-divider></nz-divider>
     <app-file-list></app-file-list>
   </nz-card>
 </div>
