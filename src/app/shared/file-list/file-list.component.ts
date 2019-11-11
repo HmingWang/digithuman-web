@@ -3,6 +3,7 @@ import {FileStoreService} from '../../services/file-store.service';
 import {FileStore} from '../../models/file-store';
 import {FileFeatureService} from '../../services/file-feature.service';
 import {FILEFEATURE_HEADER, FILESTORE_HEADER} from '../../app.globals';
+import {FileFeature} from '../../models/file-feature';
 
 @Component({
   selector: 'app-file-list',
@@ -20,12 +21,34 @@ export class FileListComponent implements OnInit {
   isVisibleFileFeature = false;
   fileName = '';
   content = '';
-  colDetails = FILEFEATURE_HEADER;
+  colDetails = [
+    {field: 'id', header: '文件序号'},
+    {field: 'countword', header: '字数'},
+    {field: 'countpunc', header: '标点数'},
+    {field: 'countsentence', header: '句数'},
+    {field: 'countsection', header: '平均句长'},
+    {field: 'sentencelen', header: '平均句长方差'},
+    {field: 'sectionlen', header: '平均句长标准差'},
+    {field: 'sentencelenvar', header: '段落数'},
+    {field: 'sentencelenstd', header: '平均段长'},
+    {field: 'sectionlenvar', header: '平均段长方差'},
+    {field: 'sectionlenstd', header: '平均段长标准差'},
+    {field: 'countdialog', header: '对白数'},
+    {field: 'countbook', header: '书名数'},
+    {field: 'sentencew', header: '问号句数'},
+    {field: 'sentenceg', header: '感叹号句数'},
+    {field: 'sentencep', header: '普通句句数'},
+    {field: 'sentenceq', header: '其他句数'},
+  ];
+;
   isAllDisplayDataChecked = false;
   isIndeterminate = false;
   numberOfChecked = 0;
   mapOfCheckedId: { [key: string]: boolean } = {};
   listOfCheckedId: number[] = [];
+  isSpinning = false;
+  fileFeatureItem: FileFeature = new FileFeature();
+
 
   constructor(private fileStoreService: FileStoreService, private fileFeatureService: FileFeatureService) {
   }
@@ -66,19 +89,21 @@ export class FileListComponent implements OnInit {
     console.log('2:' + this.content);
   }
 
-  // showFileFeature(id: any, filename: string) {
-  //   this.isSpinning = true;
-  //   this.fileFeatureService.getFileFeature(id).subscribe(item => {
-  //     this.isSpinning = true;
-  //     this.fileName = filename;
-  //     this.fileFeatureItem = item as FileFeature;
-  //     this.isSpinning = false;
-  //     this.isVisibleFileFeature = true;
-  //     console.log(this.fileFeatureItem);
-  //   }, error => {
-  //     console.log('get filefeature error', error);
-  //   });
-  // }
+  showFileFeature(id: any, filename: string) {
+
+    this.fileFeatureService.getFileFeature(id).subscribe(item => {
+      this.isSpinning = true;
+      this.fileName = filename;
+      this.fileFeatureItem = item as FileFeature;
+      this.isSpinning = false;
+      this.isVisibleFileFeature = true;
+      console.log(this.fileFeatureItem);
+    }, error => {
+      console.log('get filefeature error', error);
+    }, () => {
+      this.isSpinning = false;
+    });
+  }
 
   handleOk(): void {
     this.isVisibleFileContent = false;
