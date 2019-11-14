@@ -2,6 +2,7 @@
           nzShowPagination
           [nzData]="listOfData"
           nzSize="small"
+          [nzLoading]="isSpinning"
           (nzCurrentPageDataChange)="currentPageDataChange($event)"
 >
   <thead>
@@ -31,8 +32,10 @@
     <td>
       <button nz-button (click)="showFile(row.id, row.filename )"><i nz-icon nzType="read"></i>查看
       </button>
-      <button nz-button nz-popconfirm nzTitle="确定要删除此文件吗？" (nzOnConfirm)="deleteFile(row.id)"><i
-        nz-icon nzType="delete"></i>删除
+      <button nz-button (click)="showFileFeature(row.id,row.filename)"><i
+        nz-icon nzType="line-chart"></i>透视
+      </button>
+      <button nz-button nz-popconfirm nzTitle="确定要删除此文件吗？" (nzOnConfirm)="deleteFile(row.id)"><i nz-icon nzType="delete"></i>删除
       </button>
     </td>
   </tr>
@@ -46,13 +49,15 @@
   <textarea disabled>{{content}}</textarea>
 </nz-modal>
 
-<!--<div>-->
-<!--  <nz-modal [(nzVisible)]="isVisibleFileFeature" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="50%"-->
-<!--            nzFooter=null nzMaskClosable>-->
-<!--    <nz-descriptions [nzTitle]=fileName nzBordered>-->
-<!--      <nz-descriptions-item [nzTitle]=c.header-->
-<!--                            *ngFor="let c of colDetails">{{this.fileFeatureItem[c.field]}}</nz-descriptions-item>-->
-<!--    </nz-descriptions>-->
-<!--  </nz-modal>-->
-<!--</div>-->
+
+<nz-modal [(nzVisible)]="isVisibleFileFeature" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="50%"
+          nzFooter=null nzMaskClosable>
+  <nz-descriptions [nzTitle]=fileName nzBordered>
+    <nz-descriptions-item [nzTitle]=c.header *ngFor="let c of colDetails">
+      {{this.fileFeatureItem[c.field]}}
+    </nz-descriptions-item>
+  </nz-descriptions>
+
+</nz-modal>
+
 
