@@ -7,7 +7,7 @@
   <thead>
   <tr>
     <th
-      nzShowCheckbox
+      [nzShowCheckbox]="showCheckBox"
       [(nzChecked)]="isAllDisplayDataChecked"
       [nzIndeterminate]="isIndeterminate"
       (nzCheckedChange)="checkAll($event)"
@@ -21,7 +21,7 @@
   <tbody>
   <tr *ngFor="let row of basicTable.data">
     <td
-      nzShowCheckbox
+      [nzShowCheckbox]="showCheckBox"
       [(nzChecked)]="mapOfCheckedId[row.id]"
       (nzCheckedChange)="refreshStatus()"
     ></td>
@@ -42,8 +42,8 @@
 
 <nz-modal [(nzVisible)]="isVisibleFileContent" [nzTitle]="fileName" (nzOnCancel)="handleCancel()"
           (nzOnOk)="handleOk()" nzWidth="50%" nzFooter=null>
-  <nz-tag nzColor="red">只显示前1000字</nz-tag>
-  <textarea>{{content}}</textarea>
+<!--  <nz-tag nzColor="red">只显示前1000字</nz-tag>-->
+  <textarea disabled>{{content}}</textarea>
 </nz-modal>
 
 <!--<div>-->

@@ -10,7 +10,7 @@ export class FileFeatureService {
   constructor(private http: HttpClient) {
   }
 
-  getFileFeature(id: bigint) {
+  getFileFeature(id: number) {
 
     return this.http.get(BASE_URL + '/api/filefeature/' + id);
   }

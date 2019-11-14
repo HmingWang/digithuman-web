@@ -1,4 +1,4 @@
-export interface FileStore {
+export class FileStore {
   id;
   filename ;
   owner;

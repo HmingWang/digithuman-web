@@ -1,5 +1,7 @@
-<nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload" [nzMultiple]="true" [nzLimit]="10" [nzSize]="1000">
+<nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload" [nzMultiple]="true" [nzLimit]="10" [nzSize]="200">
   <button nz-button class="btnUpload"><i nz-icon nzType="upload"></i><span>上传文件</span></button>
+  <nz-tag [nzColor]="'red'">限制200K</nz-tag>
+  <nz-tag [nzColor]="'red'">限制10条</nz-tag>
 </nz-upload>
 <button nz-button [nzType]="'primary'" [nzLoading]="uploading" (click)="handleUpload()"
         [disabled]="fileList.length == 0" style="margin-top: 16px" class="btnUpload">

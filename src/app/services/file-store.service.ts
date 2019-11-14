@@ -18,11 +18,11 @@ export class FileStoreService {
     return this.http.get(`${BASE_URL + '/api/filestore'}`, {params});
   }
 
-  getFile(id: bigint) {
+  getFile(id: number) {
     return this.http.get(BASE_URL + '/api/filestore/' + id);
   }
 
-  deleteFileById(id: bigint) {
+  deleteFileById(id: number) {
     console.log('delete url :' + BASE_URL + '/api/filestore/' + id);
     return this.http.request('DELETE', BASE_URL + '/api/filestore/' + id);
   }

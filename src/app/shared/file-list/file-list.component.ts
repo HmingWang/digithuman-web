@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FileStoreService} from '../../services/file-store.service';
 import {FileStore} from '../../models/file-store';
 import {FileFeatureService} from '../../services/file-feature.service';
@@ -10,7 +10,8 @@ import {FILEFEATURE_HEADER, FILESTORE_HEADER} from '../../app.globals';
   styleUrls: ['./file-list.component.scss']
 })
 export class FileListComponent implements OnInit {
-
+  @Input()
+  showCheckBox = false;
   listOfData: FileStore[] = [];
   listOfDisplayData: FileStore[] = [];
   owner = 'whaim';
@@ -43,7 +44,7 @@ export class FileListComponent implements OnInit {
     this.getData();
   }
 
-  deleteFile(id: bigint) {
+  deleteFile(id: number) {
     console.log('delete row by id ' + id);
     this.fileStoreService.deleteFileById(id).subscribe((res) => {
       console.log('del ok', res);
@@ -58,7 +59,7 @@ export class FileListComponent implements OnInit {
     this.fileName = filename;
     this.fileStoreService.getFile(id).subscribe(res => {
       console.log('get file content:', res);
-      this.content = res['content'];
+      this.content = (res as FileStore).content;
       // this.content = this.content.substr(0, 1000);
     }, err => {
       console.log('get file content error. ', err);

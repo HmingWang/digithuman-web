@@ -1,0 +1,32 @@
+<div>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="folder"></i><span>特征分析</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>数据透视</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+
+<div>
+  <nz-card nzBordered="false">
+
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择文本" [(ngModel)]="selectedValue"
+               (ngModelChange)="selectFile(selectedValue)">
+      <nz-option [nzLabel]="f.id.toString()+'. '+f.filename" [nzValue]="f.id" *ngFor="let f of fileList"></nz-option>
+    </nz-select>
+
+    <nz-divider></nz-divider>
+
+        <nz-descriptions nzBordered>
+          <nz-descriptions-item [nzTitle]=c.header
+                                *ngFor="let c of colDetails">{{this.fileFeatureItem[c.field]}}</nz-descriptions-item>
+        </nz-descriptions>
+
+  </nz-card>
+</div>

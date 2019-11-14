@@ -6,6 +6,8 @@ import {BuildingComponent} from './building/building.component';
 import {FileManagerComponent} from './file-manager/file-manager.component';
 import {SearchComponent} from './search/search.component';
 import {TestPageComponent} from './test-page/test-page.component';
+import {SegmentComponent} from './segment/segment.component';
+import {FileInfoComponent} from './file-info/file-info.component';
 
 
 // @ts-ignore
@@ -18,7 +20,9 @@ const routes: Routes = [
         {path: 'file-manager', component: FileManagerComponent},
         {path: 'building', component: BuildingComponent},
         {path: 'search', component: SearchComponent},
-        {path: 'test', component: TestPageComponent}
+        {path: 'test', component: TestPageComponent},
+        {path: 'segment', component: SegmentComponent},
+        {path: 'feature', component: FileInfoComponent}
       ]
     },
   ]
