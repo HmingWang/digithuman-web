@@ -13,6 +13,7 @@ import {TestPageComponent} from './test-page/test-page.component';
 import {SegmentComponent} from './segment/segment.component';
 import {FormsModule} from '@angular/forms';
 import { FileInfoComponent } from './file-info/file-info.component';
+import { FrequencyCharComponent } from './frequency-char/frequency-char.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FileInfoComponent } from './file-info/file-info.component';
     FileManagerComponent,
     TestPageComponent,
     SegmentComponent,
-    FileInfoComponent],
+    FileInfoComponent,
+    FrequencyCharComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

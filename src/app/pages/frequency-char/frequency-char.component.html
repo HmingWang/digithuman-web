@@ -7,28 +7,22 @@
       <a><i nz-icon nzType="line-chart"></i><span>特征分析</span></a>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
-      <a><span>文本分词</span></a>
+      <a><span>字频统计</span></a>
     </nz-breadcrumb-item>
   </nz-breadcrumb>
 </div>
 
 <div>
   <nz-card nzBordered="false">
-
     <app-file-select (eventSelect)="selectFile($event)"></app-file-select>
 
     <nz-divider></nz-divider>
+
     <p>文本内容：</p>
-    <nz-spin [nzSpinning]="isSpanningFile">
+    <nz-spin [nzSpinning]="isSpanning">
       <textarea disabled>{{this.file.content}}</textarea></nz-spin>
     <nz-divider></nz-divider>
-    <p>分词结果：</p>
-    <nz-spin [nzSpinning]="isSpanningSegment">
-      <textarea disabled>{{this.fileSegment.content}}</textarea></nz-spin>
-    <nz-divider></nz-divider>
-    <p>词性标注：</p>
-    <nz-spin [nzSpinning]="isSpanningSegment">
-      <textarea disabled>{{this.fileSegment.contentnature}}</textarea></nz-spin>
-    <app-postag></app-postag>
+
+
   </nz-card>
 </div>

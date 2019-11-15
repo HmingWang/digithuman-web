@@ -16,11 +16,7 @@
 <div>
   <nz-card nzBordered="false">
 
-    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择文本" [(ngModel)]="selectedValue"
-               (ngModelChange)="selectFile(selectedValue)">
-      <nz-option [nzLabel]="f.id.toString()+'. '+f.filename" [nzValue]="f.id" *ngFor="let f of fileList"></nz-option>
-    </nz-select>
-
+    <app-file-select (eventSelect)="selectFile($event)"></app-file-select>
     <nz-divider></nz-divider>
 
         <nz-descriptions nzBordered>

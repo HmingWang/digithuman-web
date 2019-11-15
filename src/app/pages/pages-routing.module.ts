@@ -8,6 +8,7 @@ import {SearchComponent} from './search/search.component';
 import {TestPageComponent} from './test-page/test-page.component';
 import {SegmentComponent} from './segment/segment.component';
 import {FileInfoComponent} from './file-info/file-info.component';
+import {FrequencyCharComponent} from './frequency-char/frequency-char.component';
 
 
 // @ts-ignore
@@ -22,7 +23,8 @@ const routes: Routes = [
         {path: 'search', component: SearchComponent},
         {path: 'test', component: TestPageComponent},
         {path: 'segment', component: SegmentComponent},
-        {path: 'feature', component: FileInfoComponent}
+        {path: 'feature', component: FileInfoComponent},
+        {path: 'charfreq', component: FrequencyCharComponent},
       ]
     },
   ]
