@@ -103,7 +103,10 @@
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/echarts/dist/echarts.js",
+              "./node_modules/echarts-wordcloud/echarts-wordcloud.js"
+            ]
           }
         },
         "lint": {

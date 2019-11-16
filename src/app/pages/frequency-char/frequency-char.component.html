@@ -23,6 +23,27 @@
       <textarea disabled>{{this.file.content}}</textarea></nz-spin>
     <nz-divider></nz-divider>
 
+    <div nz-row>
+      <nz-table nz-col nzSpan="4"
+                #basicTable [nzData]="charFreq|keyvalue"
+                nzSize="small">
+        <thead>
+        <tr>
+          <th>名称</th>
+          <th nzShowSort
+              nzSortKey="value">频率</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{data.key}}</td>
+          <td>{{data.value}}</td>
+        </tr>
+        </tbody>
+      </nz-table>
+      <div echarts nz-col nzSpan="16" [options]="option" style="height: 400px;">
 
+      </div>
+    </div>
   </nz-card>
 </div>

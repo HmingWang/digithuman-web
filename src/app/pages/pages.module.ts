@@ -14,6 +14,7 @@ import {SegmentComponent} from './segment/segment.component';
 import {FormsModule} from '@angular/forms';
 import { FileInfoComponent } from './file-info/file-info.component';
 import { FrequencyCharComponent } from './frequency-char/frequency-char.component';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FrequencyCharComponent } from './frequency-char/frequency-char.componen
     SharedModule,
     ServicesModule,
     FormsModule,
+    NgxEchartsModule,
   ]
 })
 export class PagesModule {
