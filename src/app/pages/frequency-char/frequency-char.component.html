@@ -24,26 +24,28 @@
     <nz-divider></nz-divider>
 
     <div nz-row>
-      <nz-table nz-col nzSpan="4"
-                #basicTable [nzData]="charFreqArray"
-                nzSize="small">
+      <nz-table nz-col
+                nzSpan="8"
+                #basicTable
+                [nzData]="this.charFreqArray"
+                nzSize="small"
+                class="col-element">
         <thead>
         <tr>
           <th>名称</th>
-          <th nzShowSort
-              nzSortKey="value">频率</th>
+          <th>频率</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{data.name}}</td>
-          <td>{{data.value}}</td>
+        <tr *ngFor="let i of basicTable.data">
+          <td>{{i.name}}</td>
+          <td>{{i.value}}</td>
         </tr>
         </tbody>
       </nz-table>
-      <div echarts nz-col nzSpan="16" [options]="option" style="height: 400px;">
-
+      <div echarts nz-col nzSpan="12" [options]="option" class="col-element">
       </div>
+
     </div>
   </nz-card>
 </div>

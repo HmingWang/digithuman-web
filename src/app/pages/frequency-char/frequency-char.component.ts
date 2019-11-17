@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
-import {log, NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd';
 import {FileFeatureService} from '../../services/file-feature.service';
 
 declare var require: any;
@@ -17,7 +17,7 @@ export class FrequencyCharComponent implements OnInit {
   file: FileStore = new FileStore();
   option: any;
 
-  charFreqArray: { name: string, value: bigint }[] = [];
+  charFreqArray: { name: string, value: bigint } [] = new Array<{ name: string, value: bigint }>();
 
   constructor(private fileStoreService: FileStoreService,
               private message: NzMessageService,
@@ -26,7 +26,6 @@ export class FrequencyCharComponent implements OnInit {
 
   ngOnInit() {
     require('echarts-wordcloud');
-    this.initEcharts();
   }
 
   initEcharts() {
@@ -51,15 +50,15 @@ export class FrequencyCharComponent implements OnInit {
 
         left: 'center',
         top: 'center',
-        width: '70%',
-        height: '80%',
+        width: '100%',
+        height: '100%',
         right: null,
         bottom: null,
 
         // Text size range which the value in data will be mapped to.
         // Default to have minimum 12px and maximum 60px size.
 
-        sizeRange: [12, 60],
+        sizeRange: [12, 100],
 
         // Text rotation range and step in degree. Text will be rotated randomly in range [-90, 90] by rotationStep 45
 
@@ -97,52 +96,7 @@ export class FrequencyCharComponent implements OnInit {
         },
 
         // Data is an array. Each array item must have name and value property.
-        data: [
-          {
-            'name': '怀',
-            'value': 3
-          },
-          {
-            'name': '态',
-            'value': 2
-          },
-          {
-            'name': '老',
-            'value': 2
-          },
-          {
-            'name': '考',
-            'value': 2
-          },
-          {
-            'name': '调',
-            'value': 1
-          },
-          {
-            'name': '各',
-            'value': 1
-          },
-          {
-            'name': '者',
-            'value': 4
-          },
-          {
-            'name': '理',
-            'value': 3
-          },
-          {
-            'name': '将',
-            'value': 1
-          },
-          {
-            'name': '标',
-            'value': 1
-          },
-          {
-            'name': '谈',
-            'value': 4
-          }
-        ]
+        data: this.charFreqArray
       }]
     };
   }
@@ -157,16 +111,14 @@ export class FrequencyCharComponent implements OnInit {
       this.isSpanning = false;
     });
 
+    this.charFreqArray = [];
     this.fileFeatureService.getCharFrequency(id).subscribe(it => {
-
-      // (it as { name: string, freq: number }[]).forEach(it => {
-      //   this.charFreqArray.push({name: it.name, value: it.freq});
-      // });
-      for (const i of it as { name: string, value: bigint }[]) {
-        this.charFreqArray.push({name: i.name, value: i.value});
+      for (const i of it as Array<{ name: string, value: bigint }>) {
+        this.charFreqArray = [...this.charFreqArray, i];
       }
-      console.log('begin...');
-      console.log(this.charFreqArray);
+      this.initEcharts();
+
+      // console.log(this.basicTable.data);
     });
   }
 }
