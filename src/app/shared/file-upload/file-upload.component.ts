@@ -24,7 +24,7 @@ export class FileUploadComponent implements OnInit {
   beforeUpload = (file: UploadFile): boolean => {
     this.fileList = this.fileList.concat(file);
     return false;
-  };
+  }
 
 
   handleUpload(): void {

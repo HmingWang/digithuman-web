@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
-import {NzMessageService} from 'ng-zorro-antd';
+import {log, NzMessageService} from 'ng-zorro-antd';
 import {FileFeatureService} from '../../services/file-feature.service';
 
 declare var require: any;
@@ -15,8 +15,9 @@ declare var require: any;
 export class FrequencyCharComponent implements OnInit {
   isSpanning = false;
   file: FileStore = new FileStore();
-  charFreq: Map<string, number>;
   option: any;
+
+  charFreqArray: { name: string, value: bigint }[] = [];
 
   constructor(private fileStoreService: FileStoreService,
               private message: NzMessageService,
@@ -96,7 +97,52 @@ export class FrequencyCharComponent implements OnInit {
         },
 
         // Data is an array. Each array item must have name and value property.
-        data: [{name: 'hhhh', value: 663}, {name: 'sdfjakdsf', value: 44}]
+        data: [
+          {
+            'name': '怀',
+            'value': 3
+          },
+          {
+            'name': '态',
+            'value': 2
+          },
+          {
+            'name': '老',
+            'value': 2
+          },
+          {
+            'name': '考',
+            'value': 2
+          },
+          {
+            'name': '调',
+            'value': 1
+          },
+          {
+            'name': '各',
+            'value': 1
+          },
+          {
+            'name': '者',
+            'value': 4
+          },
+          {
+            'name': '理',
+            'value': 3
+          },
+          {
+            'name': '将',
+            'value': 1
+          },
+          {
+            'name': '标',
+            'value': 1
+          },
+          {
+            'name': '谈',
+            'value': 4
+          }
+        ]
       }]
     };
   }
@@ -112,8 +158,15 @@ export class FrequencyCharComponent implements OnInit {
     });
 
     this.fileFeatureService.getCharFrequency(id).subscribe(it => {
-      this.charFreq = (it as Map<string, number>);
-      console.log(this.charFreq);
+
+      // (it as { name: string, freq: number }[]).forEach(it => {
+      //   this.charFreqArray.push({name: it.name, value: it.freq});
+      // });
+      for (const i of it as { name: string, value: bigint }[]) {
+        this.charFreqArray.push({name: i.name, value: i.value});
+      }
+      console.log('begin...');
+      console.log(this.charFreqArray);
     });
   }
 }
