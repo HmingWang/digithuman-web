@@ -1,5 +1,3 @@
-export const BASE_URL = 'http://localhost:8080';
-
 export const FILEFEATURE_HEADER = [
   {field: 'id', header: '文件序号'},
   {field: 'countword', header: '字数'},

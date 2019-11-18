@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NzMessageService, UploadFile} from 'ng-zorro-antd';
 import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
-import {BASE_URL} from '../../app.globals';
 import {filter} from 'rxjs/operators';
+import {BASE_URL} from '../../../environments/environment';
 
 @Component({
   selector: 'app-file-upload',

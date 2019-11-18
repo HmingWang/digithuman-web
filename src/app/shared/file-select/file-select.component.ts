@@ -10,6 +10,7 @@ import {FileStoreService} from '../../services/file-store.service';
 export class FileSelectComponent implements OnInit {
   @Output() eventSelect = new EventEmitter<number>();
   fileList: FileStore[];
+  selectedValue: any;
 
   constructor(private fileStoreService: FileStoreService) {
   }
