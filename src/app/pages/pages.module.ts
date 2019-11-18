@@ -19,6 +19,7 @@ import { FrequencyWordComponent } from './frequency-word/frequency-word.componen
 import { AbstractComponent } from './abstract/abstract.component';
 import { KeywordsComponent } from './keywords/keywords.component';
 import { TranslateComponent } from './translate/translate.component';
+import { ClusterComponent } from './cluster/cluster.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { TranslateComponent } from './translate/translate.component';
     FrequencyWordComponent,
     AbstractComponent,
     KeywordsComponent,
-    TranslateComponent],
+    TranslateComponent,
+    ClusterComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

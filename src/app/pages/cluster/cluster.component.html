@@ -1,0 +1,42 @@
+<div>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="line-chart"></i><span>特征分析</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>文本聚类</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+<div>
+  <nz-card nzBordered="false">
+    <div nz-row>
+      <div nz-col nzSpan="8">
+        <span>聚类数(0~100) ：</span>
+        <nz-input-number [(ngModel)]="nCluster" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number>
+        <span>&nbsp;&nbsp;</span>
+        <span>文本关联性阈值(0.0~1.0)：</span>
+        <nz-input-number [(ngModel)]="dLimit" [nzMin]="0.0" [nzMax]="1.0" [nzStep]="0.1"></nz-input-number>
+      </div>
+      <div nz-col nzSpan="8">
+        <button nz-button (click)="setDefault()">恢复默认值</button>
+        <button nz-button nzType="primary" (click)="onClick()">执行</button>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+
+    <div>
+      <nz-spin [nzSpinning]="isSpanning" nzTip="正在执行聚类，请耐心等候...">
+        <div *ngFor="let c of this.cluster" >
+          <span>类目:</span>
+          <nz-tag nzColor="green" *ngFor="let i of c">{{i}}</nz-tag>
+        </div>
+      </nz-spin>
+    </div>
+
+  </nz-card>
+</div>

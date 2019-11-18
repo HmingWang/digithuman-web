@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {BASE_URL} from '../app.globals';
 import {Observable, of} from 'rxjs';
+import {parseErrorsFromMarkup} from 'tslint/lib/verify/parse';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,12 @@ export class FileFeatureService {
 
   getTranslate(id: number) {
     return this.http.get(BASE_URL + '/api/filefeature/translate/' + id);
+  }
+
+  getCluster(cluster: number, limit: number) {
+    const params: HttpParams = new HttpParams()
+    .append('cluster', cluster.toString())
+    .append('limit', limit.toString());
+    return this.http.get(BASE_URL + '/api/filefeature/cluster/', {params});
   }
 }

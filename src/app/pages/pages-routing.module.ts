@@ -14,6 +14,7 @@ import {AbstractClassPart} from '@angular/compiler/src/output/output_ast';
 import {AbstractComponent} from './abstract/abstract.component';
 import {KeywordsComponent} from './keywords/keywords.component';
 import {TranslateComponent} from './translate/translate.component';
+import {ClusterComponent} from './cluster/cluster.component';
 
 
 // @ts-ignore
@@ -34,6 +35,7 @@ const routes: Routes = [
         {path: 'abstract', component: AbstractComponent},
         {path: 'keywords', component: KeywordsComponent},
         {path: 'translate', component: TranslateComponent},
+        {path: 'cluster', component: ClusterComponent},
       ]
     },
   ]
