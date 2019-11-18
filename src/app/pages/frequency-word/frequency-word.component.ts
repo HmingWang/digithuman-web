@@ -4,18 +4,15 @@ import {FileStoreService} from '../../services/file-store.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {FileFeatureService} from '../../services/file-feature.service';
 
-
 @Component({
-  selector: 'app-frequency-char',
-  templateUrl: './frequency-char.component.html',
-  styleUrls: ['./frequency-char.component.scss']
+  selector: 'app-frequency-word',
+  templateUrl: './frequency-word.component.html',
+  styleUrls: ['./frequency-word.component.scss']
 })
-
-export class FrequencyCharComponent implements OnInit {
+export class FrequencyWordComponent implements OnInit {
   isSpanning = false;
   file: FileStore = new FileStore();
-
-  charFreqArray: { name: string, value: bigint } [] = new Array<{ name: string, value: bigint }>();
+  wordFreqArray: any[];
 
   constructor(private fileStoreService: FileStoreService,
               private message: NzMessageService,
@@ -35,12 +32,12 @@ export class FrequencyCharComponent implements OnInit {
       this.isSpanning = false;
     });
 
-    this.charFreqArray = [];
-    this.fileFeatureService.getCharFrequency(id).subscribe(it => {
+    this.wordFreqArray = [];
+    this.fileFeatureService.getWordFrequency(id).subscribe(it => {
       for (const i of it as Array<{ name: string, value: bigint }>) {
-        this.charFreqArray = [...this.charFreqArray, i];
+        this.wordFreqArray = [...this.wordFreqArray, i];
       }
-      this.charFreqArray.sort((a, b) => {
+      this.wordFreqArray.sort((a, b) => {
         if (a.value > b.value) {
           return -1;
         } else {

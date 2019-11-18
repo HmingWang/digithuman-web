@@ -9,6 +9,11 @@ import {TestPageComponent} from './test-page/test-page.component';
 import {SegmentComponent} from './segment/segment.component';
 import {FileInfoComponent} from './file-info/file-info.component';
 import {FrequencyCharComponent} from './frequency-char/frequency-char.component';
+import {FrequencyWordComponent} from './frequency-word/frequency-word.component';
+import {AbstractClassPart} from '@angular/compiler/src/output/output_ast';
+import {AbstractComponent} from './abstract/abstract.component';
+import {KeywordsComponent} from './keywords/keywords.component';
+import {TranslateComponent} from './translate/translate.component';
 
 
 // @ts-ignore
@@ -25,6 +30,10 @@ const routes: Routes = [
         {path: 'segment', component: SegmentComponent},
         {path: 'feature', component: FileInfoComponent},
         {path: 'charfreq', component: FrequencyCharComponent},
+        {path: 'wordfreq', component: FrequencyWordComponent},
+        {path: 'abstract', component: AbstractComponent},
+        {path: 'keywords', component: KeywordsComponent},
+        {path: 'translate', component: TranslateComponent},
       ]
     },
   ]

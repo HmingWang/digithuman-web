@@ -15,6 +15,10 @@ import {FormsModule} from '@angular/forms';
 import { FileInfoComponent } from './file-info/file-info.component';
 import { FrequencyCharComponent } from './frequency-char/frequency-char.component';
 import {NgxEchartsModule} from 'ngx-echarts';
+import { FrequencyWordComponent } from './frequency-word/frequency-word.component';
+import { AbstractComponent } from './abstract/abstract.component';
+import { KeywordsComponent } from './keywords/keywords.component';
+import { TranslateComponent } from './translate/translate.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import {NgxEchartsModule} from 'ngx-echarts';
     TestPageComponent,
     SegmentComponent,
     FileInfoComponent,
-    FrequencyCharComponent],
+    FrequencyCharComponent,
+    FrequencyWordComponent,
+    AbstractComponent,
+    KeywordsComponent,
+    TranslateComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

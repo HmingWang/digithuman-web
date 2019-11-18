@@ -1,0 +1,37 @@
+<div>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="line-chart"></i><span>特征分析</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>简繁转换</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+<div>
+  <nz-card nzBordered="false">
+
+    <app-file-select (eventSelect)="selectFile($event)"></app-file-select>
+
+    <nz-divider></nz-divider>
+    <p>简体中文：</p>
+    <nz-spin [nzSpinning]="isSpanning">
+      <textarea disabled>{{this.textMap['s']}}</textarea></nz-spin>
+    <nz-divider></nz-divider>
+    <p>汉语拼音：</p>
+    <nz-spin [nzSpinning]="isSpanning">
+      <textarea disabled>{{this.textMap['py']}}</textarea></nz-spin>
+    <nz-divider></nz-divider>
+    <p>香港繁体：</p>
+    <nz-spin [nzSpinning]="isSpanning">
+      <textarea disabled>{{this.textMap['hk']}}</textarea></nz-spin>
+    <nz-divider></nz-divider>
+    <p>台湾繁体：</p>
+    <nz-spin [nzSpinning]="isSpanning">
+      <textarea disabled>{{this.textMap['tw']}}</textarea></nz-spin>
+  </nz-card>
+</div>

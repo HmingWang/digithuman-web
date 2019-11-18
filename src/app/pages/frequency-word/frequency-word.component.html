@@ -7,7 +7,7 @@
       <a><i nz-icon nzType="line-chart"></i><span>特征分析</span></a>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
-      <a><span>字频统计</span></a>
+      <a><span>词频统计</span></a>
     </nz-breadcrumb-item>
   </nz-breadcrumb>
 </div>
@@ -27,7 +27,7 @@
       <nz-table nz-col
                 nzSpan="8"
                 #basicTable
-                [nzData]="this.charFreqArray"
+                [nzData]="this.wordFreqArray"
                 nzSize="small"
                 class="col-element">
         <thead>
@@ -43,8 +43,8 @@
         </tr>
         </tbody>
       </nz-table>
-      <div echarts nz-col nzSpan="12"  class="col-element">
-        <app-word-cloud [displayData]="this.charFreqArray"></app-word-cloud>
+      <div nz-col nzSpan="12"  class="col-element">
+        <app-word-cloud [displayData]="this.wordFreqArray"></app-word-cloud>
       </div>
 
     </div>

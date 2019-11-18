@@ -11,7 +11,6 @@ export class FileSelectComponent implements OnInit {
   @Output() eventSelect = new EventEmitter<number>();
   fileList: FileStore[];
 
-
   constructor(private fileStoreService: FileStoreService) {
   }
 
