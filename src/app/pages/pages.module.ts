@@ -20,6 +20,7 @@ import { AbstractComponent } from './abstract/abstract.component';
 import { KeywordsComponent } from './keywords/keywords.component';
 import { TranslateComponent } from './translate/translate.component';
 import { ClusterComponent } from './cluster/cluster.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ClusterComponent } from './cluster/cluster.component';
     AbstractComponent,
     KeywordsComponent,
     TranslateComponent,
-    ClusterComponent],
+    ClusterComponent,
+    LoginComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
