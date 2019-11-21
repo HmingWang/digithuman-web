@@ -27,7 +27,7 @@ export class FileInfoComponent implements OnInit {
       this.fileList = items as FileStore[];
       console.log('get file list', this.fileList.length);
     }, error => {
-      console.log(error);
+      this.message.error(error.toString());
     });
   }
 

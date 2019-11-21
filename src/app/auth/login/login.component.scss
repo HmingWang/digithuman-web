@@ -1,0 +1,28 @@
+.login-form {
+  max-width: 300px;
+  margin:0 auto;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.login-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background: black url("https://img.zcool.cn/community/01b7b75dd5f085a8012129e27214ca.jpg@1280w_1l_2o_100sh.jpg") ;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+nz-card{
+  margin-right: 16vw;
+
+}
