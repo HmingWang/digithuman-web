@@ -1,5 +1,7 @@
-.sidebar-logo {
-  position: relative;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 64px;
   padding-left: 24px;
   overflow: hidden;
@@ -8,29 +10,33 @@
   transition: all .3s;
 }
 
-.sidebar-logo img {
-  display: inline-block;
+.title img {
   height: 32px;
   width: 32px;
-  vertical-align: middle;
 }
 
-.sidebar-logo h1 {
-  display: inline-block;
+.userinfo{
+  margin-right: 20px;
+  font-size: 14px;
+  font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-weight: bold;
+}
+.title{
+  display: flex;
+  align-items: center;
+}
+.title h1 {
   margin: 0 0 0 20px;
   color: #000;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-  vertical-align: middle;
 }
 
-.sidebar-logo h2 {
-  display: inline-block;
+.title h2 {
   margin: 0 0 0 20px;
   color: gray;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-  vertical-align: middle;
 }

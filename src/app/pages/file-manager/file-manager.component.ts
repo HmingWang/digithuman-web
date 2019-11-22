@@ -25,8 +25,4 @@ export class FileManagerComponent implements OnInit {
   onFileUpload() {
     this.isVisibleFileUpload = true;
   }
-
-  onDelete() {
-
-  }
 }

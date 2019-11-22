@@ -19,7 +19,9 @@ export class FileInfoComponent implements OnInit {
   private isSpinning = false;
   private fileList: FileStore[];
 
-  constructor(private fileFeatureService: FileFeatureService, private fileStoreService: FileStoreService, private message: NzMessageService) {
+  constructor(private fileFeatureService: FileFeatureService,
+              private fileStoreService: FileStoreService,
+              private message: NzMessageService) {
   }
 
   getFileList() {
@@ -27,7 +29,7 @@ export class FileInfoComponent implements OnInit {
       this.fileList = items as FileStore[];
       console.log('get file list', this.fileList.length);
     }, error => {
-      this.message.error(error.toString());
+      console.log(error);
     });
   }
 

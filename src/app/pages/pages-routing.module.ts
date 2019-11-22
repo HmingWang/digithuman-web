@@ -19,6 +19,7 @@ import {ClusterComponent} from './cluster/cluster.component';
 
 // @ts-ignore
 const routes: Routes = [
+    {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     {
       path: '',
       component: PagesComponent,

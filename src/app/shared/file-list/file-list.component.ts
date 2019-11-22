@@ -4,6 +4,8 @@ import {FileStore} from '../../models/file-store';
 import {FileFeatureService} from '../../services/file-feature.service';
 import {FILEFEATURE_HEADER, FILESTORE_HEADER} from '../../app.globals';
 import {FileFeature} from '../../models/file-feature';
+import {NzMessageService} from 'ng-zorro-antd';
+import {log} from 'util';
 
 @Component({
   selector: 'app-file-list',
@@ -32,7 +34,8 @@ export class FileListComponent implements OnInit {
   fileFeatureItem: FileFeature = new FileFeature();
 
 
-  constructor(private fileStoreService: FileStoreService, private fileFeatureService: FileFeatureService) {
+  constructor(private fileStoreService: FileStoreService,
+              private fileFeatureService: FileFeatureService) {
   }
 
   getData() {
