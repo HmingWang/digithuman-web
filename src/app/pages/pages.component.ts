@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorizeService} from '../services/authorize.service';
 import {NzMessageService} from 'ng-zorro-antd';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-pages',
@@ -21,9 +22,12 @@ export class PagesComponent implements OnInit {
     this.authorizeService.getUserInfo().subscribe(obj => {
       this.res = obj as Response;
       console.log('++++++++++' + this.res);
-    }, error => {
+    }, (error: HttpErrorResponse) => {
+
       console.log('bbbbbbbbbbbbbbbbbbb');
-      console.log(error);
+      console.log(error.message);
+      console.log(error.status);
+      console.log(error.url);
     });
   }
 }
