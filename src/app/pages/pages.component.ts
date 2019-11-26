@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorizeService} from '../services/authorize.service';
 import {NzMessageService} from 'ng-zorro-antd';
-import {HttpErrorResponse} from '@angular/common/http';
+import {ErrorService} from '../services/error.service';
 
 @Component({
   selector: 'app-pages',
@@ -10,24 +10,15 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class PagesComponent implements OnInit {
   isCollapsed = true;
-  private res: Response;
   username: any;
 
-  constructor(private authorizeService: AuthorizeService, private message: NzMessageService) {
+  constructor(private authorizeService: AuthorizeService, private message: NzMessageService, private errorService: ErrorService) {
 
   }
 
   ngOnInit() {
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAA');
     this.authorizeService.getUserInfo().subscribe(obj => {
-      this.res = obj as Response;
-      console.log('++++++++++' + this.res);
-    }, (error: HttpErrorResponse) => {
-
-      console.log('bbbbbbbbbbbbbbbbbbb');
-      console.log(error.message);
-      console.log(error.status);
-      console.log(error.url);
-    });
+      this.username = obj as string;
+    }, error => this.errorService.handleError(error));
   }
 }
