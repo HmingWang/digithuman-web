@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthorizeService} from '../../services/authorize.service';
 import {Router} from '@angular/router';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   validateForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthorizeService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private authService: AuthorizeService,
+              private router: Router,
+              private message: NzMessageService) {
   }
 
   ngOnInit() {
@@ -27,12 +31,13 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-    // console.log(this.validateForm.value.userName);
     this.authService.login(this.validateForm.value.userName, this.validateForm.value.password, this.validateForm.value.remember).subscribe(
       it => {
-        console.log(it[0]);
+        console.log(it);
         if (it[0] === 'OK') {
           this.router.navigateByUrl('/');
+        } else {
+          this.message.error(it[0]);
         }
       }
     );

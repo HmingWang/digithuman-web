@@ -17,7 +17,7 @@ export class PagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authorizeService.getUserInfo().subscribe(obj => {
+    this.authorizeService.getUserInfo('whaim').subscribe(obj => {
       this.username = obj as string;
     }, error => this.errorService.handleError(error));
   }

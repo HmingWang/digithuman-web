@@ -1,17 +1,21 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {BASE_URL} from '../../environments/environment';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizeService {
 
+  requestOptions = {
+    headers: new HttpHeaders(),
+    withCredentials: true
+  };
+
   constructor(private http: HttpClient) {
   }
 
-  getUserInfo() {
+  getUserInfo(username: string) {
     return this.http.get(BASE_URL + '/api/user');
   }
 

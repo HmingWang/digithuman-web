@@ -1,0 +1,35 @@
+
+
+.phone-select {
+  width: 70px;
+}
+
+.register-area {
+  margin-bottom: 8px;
+}
+
+.register-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background: black url("https://img.zcool.cn/community/01b7b75dd5f085a8012129e27214ca.jpg@1280w_1l_2o_100sh.jpg") ;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+nz-card{
+  margin-right: 16vw;
+}
+
+.register-form {
+  width: 500px;
+  margin:0 auto;
+}
+
+.back{
+  margin-left: 100px;
+  color: gray;
+  //font-size: 12pt;
+}
