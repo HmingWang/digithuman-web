@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthorizeService} from '../../services/authorize.service';
+import {Router} from '@angular/router';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,10 @@ export class RegisterComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private authService: AuthorizeService,
+              private router: Router,
+              private message: NzMessageService) {
   }
 
   submitForm(): void {
@@ -18,6 +24,20 @@ export class RegisterComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+    this.authService.register(
+      this.validateForm.value.email,
+      this.validateForm.value.password,
+      this.validateForm.value.nickname,
+      this.validateForm.value.phoneNumber,
+      this.validateForm.value.website)
+      .subscribe(it => {
+        console.log(it);
+        if (it[0] === 'OK') {
+          this.router.navigateByUrl('/');
+        } else {
+          this.message.error(it[0]);
+        }
+      });
   }
 
   updateConfirmValidator(): void {

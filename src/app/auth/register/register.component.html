@@ -3,13 +3,13 @@
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="register-form">
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">电子邮箱地址</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入正确的电子邮箱地址!">
           <input nz-input formControlName="email" id="email" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>密码</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入密码!">
           <input
             nz-input
             type="password"
@@ -25,10 +25,10 @@
           <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
           <ng-template #errorTpl let-control>
             <ng-container *ngIf="control.hasError('required')">
-              Please confirm your password!
+              请确认您的密码!
             </ng-container>
             <ng-container *ngIf="control.hasError('confirm')">
-              Two passwords that you enter is inconsistent!
+              您输入的密码不一致!
             </ng-container>
           </ng-template>
         </nz-form-control>
@@ -36,17 +36,17 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
           <span>
-            用户名
+            昵称
             <i
               nz-icon
               nz-tooltip
-              nzTitle="What do you want other to call you"
+              nzTitle="您希望别人怎么称呼您"
               nzType="question-circle"
               nzTheme="outline"
             ></i>
           </span>
         </nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入您的昵称!">
           <input nz-input id="nickname" formControlName="nickname" />
         </nz-form-control>
       </nz-form-item>
@@ -56,7 +56,7 @@
           [nzSm]="14"
           [nzXs]="24"
           [nzValidateStatus]="validateForm.controls['phoneNumber']"
-          nzErrorTip="Please input your phone number!"
+          nzErrorTip="请输入您的手机号码!"
         >
           <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
             <ng-template #addOnBeforeTemplate>
@@ -71,7 +71,7 @@
       </nz-form-item>
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="website" nzRequired>工作单位</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input website!">
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入工作单位!">
           <input nz-input id="website" formControlName="website" placeholder="website" />
         </nz-form-control>
       </nz-form-item>

@@ -26,6 +26,21 @@ export class AuthorizeService {
       .append('remember', remember ? 'true' : 'false');
     return this.http.post(BASE_URL + '/api/auth/login', params);
   }
+
+  register(usercode: string,
+           password: string,
+           username: string,
+           mobile: string,
+           department: string) {
+    const params = new HttpParams()
+      .append('usercode', usercode)
+      .append('password', password)
+      .append('username', username)
+      .append('mobile', mobile)
+      .append('department', department);
+    return this.http.post(BASE_URL + '/api/auth/register', params);
+
+  }
 }
 
 
