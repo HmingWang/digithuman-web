@@ -15,8 +15,8 @@ export class AuthorizeService {
   constructor(private http: HttpClient) {
   }
 
-  getUserInfo(username: string) {
-    return this.http.get(BASE_URL + '/api/user');
+  getUserInfo() {
+    return this.http.get(BASE_URL + '/api/auth/userinfo');
   }
 
   login(username: string, password: string, remember: boolean) {

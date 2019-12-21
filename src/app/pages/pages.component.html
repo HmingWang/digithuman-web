@@ -4,7 +4,7 @@
       <span class="header-trigger" (click)="isCollapsed=!isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
       </span>
-      <app-header [userName]="username"></app-header>
+      <app-header [userName]="user.username"></app-header>
     </div>
   </nz-header>
   <nz-layout>
@@ -19,10 +19,10 @@
         <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '首页' : ''" nzSelected nzMatchRouter>
           <a routerLink="/welcome"><i nz-icon nzType="home"></i>{{isCollapsed ? '' : '首页'}}</a>
         </li>
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '测试页面' : ''" nzSelected nzMatchRouter>
+<!--        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '测试页面' : ''" nzSelected nzMatchRouter>-->
 
-          <a routerLink="/test"><i nz-icon nzType="bug"></i>{{isCollapsed ? '' : '测试页面'}}</a>
-        </li>
+<!--          <a routerLink="/test"><i nz-icon nzType="bug"></i>{{isCollapsed ? '' : '测试页面'}}</a>-->
+<!--        </li>-->
         <li nz-submenu nzTitle="数据管理" nzIcon="folder">
           <ul>
             <li nz-menu-item nzMatchRouter>
@@ -61,19 +61,19 @@
             </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="配置管理" nzIcon="profile">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">分词算法</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">词库定义</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">去停词库</a>
-            </li>
-          </ul>
-        </li>
+<!--        <li nz-submenu nzTitle="配置管理" nzIcon="profile">-->
+<!--          <ul>-->
+<!--            <li nz-menu-item nzMatchRouter>-->
+<!--              <a routerLink="/building">分词算法</a>-->
+<!--            </li>-->
+<!--            <li nz-menu-item nzMatchRouter>-->
+<!--              <a routerLink="/building">词库定义</a>-->
+<!--            </li>-->
+<!--            <li nz-menu-item nzMatchRouter>-->
+<!--              <a routerLink="/building">去停词库</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </li>-->
         <li nz-submenu nzTitle="用户管理" nzIcon="user">
           <ul>
             <li nz-menu-item nzMatchRouter>
