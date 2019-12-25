@@ -7,15 +7,11 @@ import {BASE_URL} from '../../environments/environment';
 })
 export class FileStoreService {
 
-  private owner = 'whaim';
-
   constructor(private http: HttpClient) {
   }
 
-  getFileList(owner: string) {
-    const params = new HttpParams()
-      .append('owner', `${owner}`);
-    return this.http.get(`${BASE_URL + '/api/filestore'}`, {params});
+  getFileList() {
+    return this.http.get(`${BASE_URL + '/api/filestore'}`);
   }
 
   getFile(id: number) {

@@ -20,7 +20,7 @@ export class FileSelectComponent implements OnInit {
   }
 
   getFileList() {
-    this.fileStoreService.getFileList('whaim').subscribe(items => {
+    this.fileStoreService.getFileList().subscribe(items => {
       this.fileList = items as FileStore[];
       console.log('get file list', this.fileList.length);
     }, error => {

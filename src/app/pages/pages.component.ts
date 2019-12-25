@@ -10,7 +10,7 @@ import {AuthUser} from '../models/auth-user';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-  isCollapsed = true;
+  isCollapsed = false;
 
   user: AuthUser = new AuthUser();
 
@@ -19,6 +19,7 @@ export class PagesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isCollapsed = false;
     this.authorizeService.getUserInfo().subscribe(obj => {
       this.user = obj as AuthUser;
     }, error => this.errorService.handleError(error));

@@ -41,6 +41,10 @@ export class AuthorizeService {
     return this.http.post(BASE_URL + '/api/auth/register', params);
 
   }
+
+  logout() {
+    return this.http.get(BASE_URL + '/api/auth/logout');
+  }
 }
 
 

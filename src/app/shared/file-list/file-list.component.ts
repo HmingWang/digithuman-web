@@ -17,7 +17,6 @@ export class FileListComponent implements OnInit {
   showCheckBox = false;
   listOfData: FileStore[] = [];
   listOfDisplayData: FileStore[] = [];
-  owner = 'whaim';
   cols = FILESTORE_HEADER;
   loading = true;
   isVisibleFileContent = false;
@@ -40,7 +39,7 @@ export class FileListComponent implements OnInit {
 
   getData() {
     this.loading = true;
-    this.fileStoreService.getFileList(this.owner).subscribe((data: any) => {
+    this.fileStoreService.getFileList().subscribe((data: any) => {
       this.listOfData = data;
       this.loading = false;
     });
