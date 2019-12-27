@@ -1,0 +1,72 @@
+<div>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="home"></i><span>首页</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><i nz-icon nzType="user"></i><span>用户管理</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a><span>修改个人信息</span></a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+
+<div>
+  <nz-card nzBordered="false">
+
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="register-form">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">用户帐号</nz-form-label>
+        <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="请输入正确的电子邮箱地址!">
+          <input nz-input formControlName="email" id="email" [(ngModel)]="user.usercode" [disabled]="true"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+          <span>
+            昵称
+            <i nz-icon nz-tooltip nzTitle="您希望别人怎么称呼您" nzType="question-circle" nzTheme="outline"></i>
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="请输入您的昵称!">
+          <input nz-input id="nickname" formControlName="nickname" [(ngModel)]="user.username"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>手机号码</nz-form-label>
+        <nz-form-control
+          [nzSm]="6"
+          [nzXs]="24"
+          [nzValidateStatus]="validateForm.controls['phoneNumber']"
+          nzErrorTip="请输入您的手机号码!"
+        >
+          <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+            <ng-template #addOnBeforeTemplate>
+              <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+                <nz-option nzLabel="+86" nzValue="+86"></nz-option>
+                <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+              </nz-select>
+            </ng-template>
+            <input formControlName="phoneNumber" id="'phoneNumber'" nz-input [(ngModel)]="user.mobile"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="website" nzRequired>工作单位</nz-form-label>
+        <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="请输入工作单位!">
+          <input nz-input id="website" formControlName="website" placeholder="工作单位" [(ngModel)]="user.department"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="6" [nzOffset]="6">
+          <button nz-button nzType="primary">确定</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+
+  </nz-card>
+</div>

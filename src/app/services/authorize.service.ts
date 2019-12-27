@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {BASE_URL} from '../../environments/environment';
 
 @Injectable({
@@ -7,17 +7,10 @@ import {BASE_URL} from '../../environments/environment';
 })
 export class AuthorizeService {
 
-  requestOptions = {
-    headers: new HttpHeaders(),
-    withCredentials: true
-  };
-
   constructor(private http: HttpClient) {
   }
 
-  getUserInfo() {
-    return this.http.get(BASE_URL + '/api/auth/userinfo');
-  }
+
 
   login(username: string, password: string, remember: boolean) {
     const params = new HttpParams()

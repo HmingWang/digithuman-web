@@ -3,6 +3,7 @@ import {AuthorizeService} from '../services/authorize.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {ErrorService} from '../services/error.service';
 import {AuthUser} from '../models/auth-user';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-pages',
@@ -14,13 +15,13 @@ export class PagesComponent implements OnInit {
 
   user: AuthUser = new AuthUser();
 
-  constructor(private authorizeService: AuthorizeService, private message: NzMessageService, private errorService: ErrorService) {
+  constructor(private userService: UserService, private message: NzMessageService, private errorService: ErrorService) {
 
   }
 
   ngOnInit() {
     this.isCollapsed = false;
-    this.authorizeService.getUserInfo().subscribe(obj => {
+    this.userService.getUserInfo().subscribe(obj => {
       this.user = obj as AuthUser;
     }, error => this.errorService.handleError(error));
   }
