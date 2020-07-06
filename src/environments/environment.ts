@@ -15,4 +15,5 @@ export const environment = {
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-export const BASE_URL = 'http://localhost:9080';
+// export const BASE_URL = 'http://localhost:9080';
+export const BASE_URL = 'http://47.112.111.139:9080';
