@@ -45,11 +45,11 @@ jobs:
           target: "digithuman-ui"
           strip_components: 2
 
-      - name: run service
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: cp -r digithuman-ui /var/www/
+#      - name: run service
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          script: cp -r digithuman-ui /var/www/
 
