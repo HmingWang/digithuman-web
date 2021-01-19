@@ -3,8 +3,7 @@ import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
 import {FileSegmentService} from '../../services/file-segment.service';
 import {FileSegment} from '../../models/file-segment';
-import {NzMessageService} from 'ng-zorro-antd';
-import {combineAll} from 'rxjs/operators';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-segment',

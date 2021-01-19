@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
-import {NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd/message';
 import {FileFeatureService} from '../../services/file-feature.service';
 
 

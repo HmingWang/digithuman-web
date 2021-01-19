@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd/message';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {debug, debuglog, log} from 'util';

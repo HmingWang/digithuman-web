@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorizeService} from '../services/authorize.service';
-import {NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd/message';
 import {ErrorService} from '../services/error.service';
 import {AuthUser} from '../models/auth-user';
 import {UserService} from '../services/user.service';

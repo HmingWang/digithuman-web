@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AuthorizeService} from '../../services/authorize.service';
 import {Router} from '@angular/router';
-import {NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-header',
