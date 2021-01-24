@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import {NzMessageService} from "ng-zorro-antd/message";
 
 
 @NgModule({
@@ -15,6 +16,8 @@ import {SharedModule} from '../shared/shared.module';
     AuthRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-  ]
+  ],
+  providers:[NzMessageService]
+
 })
 export class AuthModule { }
