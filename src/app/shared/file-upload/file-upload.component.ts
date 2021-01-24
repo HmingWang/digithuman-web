@@ -3,7 +3,7 @@ import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
 import {filter} from 'rxjs/operators';
 import {BASE_URL} from '../../../environments/environment';
 import {NzMessageService} from 'ng-zorro-antd/message';
-import {NzUploadFile} from 'ng-zorro-antd/upload';
+import {UploadFile} from 'ng-zorro-antd/upload';
 
 @Component({
   selector: 'app-file-upload',
@@ -12,7 +12,7 @@ import {NzUploadFile} from 'ng-zorro-antd/upload';
 })
 export class FileUploadComponent implements OnInit {
   uploading = false;
-  fileList: NzUploadFile[] = [];
+  fileList: UploadFile[] = [];
 
   constructor(private http: HttpClient, private msg: NzMessageService) {
   }
@@ -22,7 +22,7 @@ export class FileUploadComponent implements OnInit {
 
   }
 
-  beforeUpload = (file: NzUploadFile): boolean => {
+  beforeUpload = (file: UploadFile): boolean => {
     this.fileList = this.fileList.concat(file);
     return false;
   }
