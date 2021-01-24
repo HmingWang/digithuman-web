@@ -10,7 +10,6 @@ import {SegmentComponent} from './segment/segment.component';
 import {FileInfoComponent} from './file-info/file-info.component';
 import {FrequencyCharComponent} from './frequency-char/frequency-char.component';
 import {FrequencyWordComponent} from './frequency-word/frequency-word.component';
-import {AbstractClassPart} from '@angular/compiler/src/output/output_ast';
 import {AbstractComponent} from './abstract/abstract.component';
 import {KeywordsComponent} from './keywords/keywords.component';
 import {TranslateComponent} from './translate/translate.component';

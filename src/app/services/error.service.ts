@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {debug, debuglog, log} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class ErrorService {
   handleError(error: HttpErrorResponse) {
 
     if (error.status === 401) {
-      log('401 auth field. redirect to login page.');
+      console.log('401 auth field. redirect to login page.');
       this.router.navigateByUrl('/auth/login');
     }
   }

@@ -22,8 +22,6 @@ import {TranslateComponent} from './translate/translate.component';
 import {ClusterComponent} from './cluster/cluster.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
-import {NzMessageService, NzMessageServiceModule} from "ng-zorro-antd/message";
-import {NzOverlayModule} from "ng-zorro-antd/core/overlay";
 
 
 @NgModule({
@@ -54,8 +52,6 @@ import {NzOverlayModule} from "ng-zorro-antd/core/overlay";
     NgxEchartsModule,
     ReactiveFormsModule,
   ],
-  providers:[NzMessageService]
-
 })
 export class PagesModule {
 }

@@ -11,7 +11,6 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {SharedModule} from './shared/shared.module';
 import {NZ_I18N, zh_CN} from 'ng-zorro-antd/i18n';
-import {NzMessageService} from "ng-zorro-antd/message";
 
 registerLocaleData(zh);
 
