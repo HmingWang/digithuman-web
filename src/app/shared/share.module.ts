@@ -33,7 +33,9 @@ import {NzPageHeaderModule} from 'ng-zorro-antd/page-header';
 import {NzSelectModule} from 'ng-zorro-antd/select';
 import {NzSpinModule} from 'ng-zorro-antd/spin';
 import {NzTabsModule} from 'ng-zorro-antd/tabs';
-import {FooterComponent} from './footer/footer.component'; // use this
+import {FooterComponent} from './footer/footer.component';
+import {NzResultModule} from 'ng-zorro-antd/result';
+import {NzInputNumberModule} from 'ng-zorro-antd/input-number'; // use this
 
 
 const sharedComponents = [
@@ -71,6 +73,8 @@ const sharedModules = [
   NzSelectModule,
   NzSpinModule,
   NzTabsModule,
+  NzResultModule,
+  NzInputNumberModule,
   NgxEchartsModule.forRoot({
     /**
      * This will import all modules from echarts.
