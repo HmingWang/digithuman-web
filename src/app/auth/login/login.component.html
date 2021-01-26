@@ -1,36 +1,36 @@
 <div class="main">
-<div class="login-content">
-  <nz-card nzTitle="曝书 v0.99 内部版">
-    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-      <nz-form-item>
-        <nz-form-control nzErrorTip="请填写用户名！">
-          <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="userName" placeholder="用户名/手机号/电子邮箱"/>
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control nzErrorTip="请填写密码！">
-          <nz-input-group nzPrefixIcon="lock">
-            <input type="password" nz-input formControlName="password" placeholder="密码"/>
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control>
-          <label nz-checkbox formControlName="remember">
-            <span>记住我</span>
-          </label>
-          <a class="login-form-forgot">忘记密码？</a>
-          <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
-          <a routerLink="../register">注册新用户</a>
-        </nz-form-control>
-      </nz-form-item>
-    </form>
-  </nz-card>
-</div>
-<nz-footer>
-  <app-footer></app-footer>
-</nz-footer>
+  <div class="login-content">
+    <nz-card nzTitle="曝书 v0.99 内部版">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="请填写用户名！">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder="用户名/手机号/电子邮箱"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="请填写密码！">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="密码"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <label nz-checkbox formControlName="remember">
+              <span>记住我</span>
+            </label>
+            <a class="login-form-forgot">忘记密码？</a>
+            <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
+            <a routerLink="../register">注册新用户</a>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+  </div>
+  <nz-footer>
+    <app-footer></app-footer>
+  </nz-footer>
 
 </div>
