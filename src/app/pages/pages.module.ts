@@ -23,6 +23,7 @@ import {ClusterComponent} from './cluster/cluster.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
 import { CleanAutoComponent } from './clean-auto/clean-auto.component';
+import { CleanStopComponent } from './clean-stop/clean-stop.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { CleanAutoComponent } from './clean-auto/clean-auto.component';
     ChangePasswordComponent,
     EditUserInfoComponent,
     CleanAutoComponent,
+    CleanStopComponent,
   ],
   imports: [
     CommonModule,

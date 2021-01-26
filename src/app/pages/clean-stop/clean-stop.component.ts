@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
 import {FileFeatureService} from '../../services/file-feature.service';
 import {NzMessageService} from 'ng-zorro-antd/message';
-import {FileStore} from '../../models/file-store';
 
 @Component({
-  selector: 'app-clean-auto',
-  templateUrl: './clean-auto.component.html',
-  styleUrls: ['./clean-auto.component.scss']
+  selector: 'app-clean-stop',
+  templateUrl: './clean-stop.component.html',
+  styleUrls: ['./clean-stop.component.scss']
 })
-export class CleanAutoComponent implements OnInit {
+export class CleanStopComponent implements OnInit {
+
   isSpanning = false;
   file: FileStore = new FileStore();
   abstract: string;
@@ -35,4 +36,5 @@ export class CleanAutoComponent implements OnInit {
     });
 
   }
+
 }

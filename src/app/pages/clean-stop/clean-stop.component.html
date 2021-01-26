@@ -4,14 +4,13 @@
       <a><i nz-icon nzType="home"></i><span>首页</span></a>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
-      <a><i nz-icon nzType="bar-chart"></i><span>特征分析</span></a>
+      <a><i nz-icon nzType="profile"></i><span>数据清洗</span></a>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
-      <a><span>提取关键词</span></a>
+      <a><span>去停词</span></a>
     </nz-breadcrumb-item>
   </nz-breadcrumb>
 </div>
-
 <div>
   <nz-card nzBordered="false">
     <app-file-select (eventSelect)="selectFile($event)"></app-file-select>
@@ -22,11 +21,11 @@
       <textarea disabled>{{this.file.content}}</textarea></nz-spin>
     <nz-divider></nz-divider>
 
-    <p>关键词：</p>
+    <p>去停词：</p>
+
     <nz-spin [nzSpinning]="isSpanning">
-      <nz-tag nzColor="blue" *ngFor="let word of this.keywords">{{word}}</nz-tag>
-    </nz-spin>
-<!--    <nz-alert nzType="error" nzMessage="测试功能，结果仅供参考"></nz-alert>-->
+      <textarea disabled>{{this.abstract}}</textarea></nz-spin>
+    <!--    <nz-alert nzType="error" nzMessage="测试功能，结果仅供参考"></nz-alert>-->
 
   </nz-card>
 </div>
