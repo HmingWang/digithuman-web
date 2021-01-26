@@ -18,6 +18,7 @@ import {ChangePasswordComponent} from './change-password/change-password.compone
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
 import {CleanAutoComponent} from './clean-auto/clean-auto.component';
 import {CleanStopComponent} from './clean-stop/clean-stop.component';
+import {OperateLogComponent} from './operate-log/operate-log.component';
 
 
 // @ts-ignore
@@ -44,6 +45,7 @@ const routes: Routes = [
         {path: 'edituser', component: EditUserInfoComponent},
         {path: 'autoclean', component: CleanAutoComponent},
         {path: 'stopclean', component: CleanStopComponent},
+        {path: 'operlog', component: OperateLogComponent},
       ]
     },
   ]

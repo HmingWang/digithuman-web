@@ -24,6 +24,7 @@ import {ChangePasswordComponent} from './change-password/change-password.compone
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
 import { CleanAutoComponent } from './clean-auto/clean-auto.component';
 import { CleanStopComponent } from './clean-stop/clean-stop.component';
+import { OperateLogComponent } from './operate-log/operate-log.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CleanStopComponent } from './clean-stop/clean-stop.component';
     EditUserInfoComponent,
     CleanAutoComponent,
     CleanStopComponent,
+    OperateLogComponent,
   ],
   imports: [
     CommonModule,
