@@ -12,7 +12,7 @@ import {FileFeatureService} from '../../services/file-feature.service';
 export class FrequencyWordComponent implements OnInit {
   isSpanning = false;
   file: FileStore = new FileStore();
-  wordFreqArray: any[];
+  wordFreqArray: { name: string, value: bigint } [] = new Array<{ name: string, value: bigint }>();
 
   constructor(private fileStoreService: FileStoreService,
               private message: NzMessageService,

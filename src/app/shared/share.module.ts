@@ -36,6 +36,7 @@ import {NzTabsModule} from 'ng-zorro-antd/tabs';
 import {FooterComponent} from './footer/footer.component';
 import {NzResultModule} from 'ng-zorro-antd/result';
 import {NzInputNumberModule} from 'ng-zorro-antd/input-number'; // use this
+import * as echarts from 'echarts';
 
 
 const sharedComponents = [
@@ -76,12 +77,7 @@ const sharedModules = [
   NzResultModule,
   NzInputNumberModule,
   NgxEchartsModule.forRoot({
-    /**
-     * This will import all modules from echarts.
-     * If you only need custom modules,
-     * please refer to [Custom Build] section.
-     */
-    echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+    echarts,
   }),
 ];
 
