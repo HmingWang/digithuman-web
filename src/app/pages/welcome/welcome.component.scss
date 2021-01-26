@@ -1,3 +1,19 @@
 .prof{
-  height: 600px;
+  //height: 60%;
+  background:#FFFFFFAA;
+
 }
+
+.back{
+  background-image: url('../../../assets/bg.jpg');
+  background-size: cover;
+  height: 100%;
+}
+.mask{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:#FFFFFFAA;
+  height: 100%;
+}
+
