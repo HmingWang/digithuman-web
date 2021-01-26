@@ -16,7 +16,7 @@
               [nzTrigger]="null">
 
       <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="this.isCollapsed">
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '首页' : ''" nzSelected nzMatchRouter>
+        <li nz-menu-item nz-tooltip nzPlacement="right" nzTitle="{{isCollapsed ? '首页' : ''}}" nzSelected nzMatchRouter>
           <a routerLink="/welcome"><i nz-icon nzType="home"></i>{{isCollapsed ? '' : '首页'}}</a>
         </li>
         <!--        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? '测试页面' : ''" nzSelected nzMatchRouter>-->
@@ -30,6 +30,9 @@
             </li>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/search">数据检索</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/translate">简繁转换</a>
             </li>
           </ul>
         </li>
@@ -50,12 +53,15 @@
             <!--            <li nz-menu-item nzMatchRouter>-->
             <!--              <a routerLink="/abstract">自动摘要</a>-->
             <!--            </li>-->
+
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="高级分析" nzIcon="line-chart">
+          <ul>
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/keywords">提取关键词</a>
             </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/translate">简繁转换</a>
-            </li>
+
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/cluster">文本聚类</a>
             </li>
@@ -77,13 +83,17 @@
         <li nz-submenu nzTitle="数据清洗" nzIcon="profile">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">分词算法</a>
+              <a routerLink="/autoclean">自动清洗</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">词库定义</a>
+              <a routerLink="/stopclean">去停词清洗</a>
             </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="用户研究" nzIcon="user">
+          <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/building">去停词库</a>
+              <a routerLink="/operlog">行为轨迹</a>
             </li>
           </ul>
         </li>
@@ -95,11 +105,9 @@
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/password">修改密码</a>
             </li>
-            <!--            <li nz-menu-item nzMatchRouter>-->
-            <!--              <a>注销</a>-->
-            <!--            </li>-->
           </ul>
         </li>
+
       </ul>
     </nz-sider>
     <nz-content>
@@ -108,7 +116,9 @@
       </div>
     </nz-content>
   </nz-layout>
-  <nz-footer><app-footer></app-footer></nz-footer>
+  <nz-footer>
+    <app-footer></app-footer>
+  </nz-footer>
 </nz-layout>
 
 

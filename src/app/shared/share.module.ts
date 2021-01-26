@@ -82,10 +82,10 @@ const sharedModules = [
 ];
 
 @NgModule({
-  declarations: [sharedComponents, WordCloudComponent, FooterComponent,],
+  declarations: [sharedComponents, WordCloudComponent, FooterComponent, ],
   imports: [sharedModules],
-  exports: [sharedComponents, sharedModules, WordCloudComponent,],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},]
+  exports: [sharedComponents, sharedModules, WordCloudComponent, ],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, ]
 })
 
 export class ShareModule {
