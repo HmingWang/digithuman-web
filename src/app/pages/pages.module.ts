@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {PagesRoutingModule} from './pages-routing.module';
 import {WelcomeComponent} from './welcome/welcome.component';
-import {SharedModule} from '../shared/shared.module';
+import {ShareModule} from '../shared/share.module';
 import {PagesComponent} from './pages.component';
 import {ServicesModule} from '../services/services.module';
 import {BuildingComponent} from './building/building.component';
@@ -46,7 +46,7 @@ import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule,
+    ShareModule,
     ServicesModule,
     FormsModule,
     NgxEchartsModule,

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {SharedModule} from './shared/shared.module';
+import {ShareModule} from './shared/share.module';
 import {NZ_I18N, zh_CN} from 'ng-zorro-antd/i18n';
 
 registerLocaleData(zh);
@@ -20,7 +20,7 @@ registerLocaleData(zh);
   ],
   imports: [
     BrowserModule,
-    SharedModule,
+    ShareModule,
     AppRoutingModule,
     IconsProviderModule,
     FormsModule,

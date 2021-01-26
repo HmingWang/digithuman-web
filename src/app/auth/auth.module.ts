@@ -5,8 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {SharedModule} from '../shared/shared.module';
-import {NzMessageService} from "ng-zorro-antd/message";
+import {ShareModule} from '../shared/share.module';
 
 
 @NgModule({
@@ -14,10 +13,9 @@ import {NzMessageService} from "ng-zorro-antd/message";
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule,
+    ShareModule,
     ReactiveFormsModule,
   ],
-  providers:[NzMessageService]
 
 })
 export class AuthModule { }

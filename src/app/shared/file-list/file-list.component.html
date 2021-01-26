@@ -13,7 +13,7 @@
       [nzIndeterminate]="isIndeterminate"
       (nzCheckedChange)="checkAll($event)"
     ></th>
-    <th [nzSortKey]=col.field *ngFor="let col of cols">
+    <th [nzSortFn]=col.field *ngFor="let col of cols">
       {{col.header}}
     </th>
     <th>操作</th>
