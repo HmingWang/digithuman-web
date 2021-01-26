@@ -31,7 +31,9 @@ import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions';
 import {NzListModule} from 'ng-zorro-antd/list';
 import {NzPageHeaderModule} from 'ng-zorro-antd/page-header';
 import {NzSelectModule} from 'ng-zorro-antd/select';
-import {NzSpinModule} from 'ng-zorro-antd/spin'; // use this
+import {NzSpinModule} from 'ng-zorro-antd/spin';
+import {NzTabsModule} from 'ng-zorro-antd/tabs';
+import {FooterComponent} from './footer/footer.component'; // use this
 
 
 const sharedComponents = [
@@ -40,6 +42,7 @@ const sharedComponents = [
   FileUploadComponent,
   PostagComponent,
   FileSelectComponent,
+  FooterComponent
 ];
 
 const sharedModules = [
@@ -67,13 +70,22 @@ const sharedModules = [
   NzPageHeaderModule,
   NzSelectModule,
   NzSpinModule,
+  NzTabsModule,
+  NgxEchartsModule.forRoot({
+    /**
+     * This will import all modules from echarts.
+     * If you only need custom modules,
+     * please refer to [Custom Build] section.
+     */
+    echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+  }),
 ];
 
 @NgModule({
-  declarations: [sharedComponents, WordCloudComponent, ],
-  imports: [sharedModules, NgxEchartsModule, NzUploadModule],
-  exports: [sharedComponents, sharedModules, WordCloudComponent, ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, ]
+  declarations: [sharedComponents, WordCloudComponent, FooterComponent,],
+  imports: [sharedModules],
+  exports: [sharedComponents, sharedModules, WordCloudComponent,],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},]
 })
 
 export class ShareModule {

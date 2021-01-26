@@ -1,32 +1,45 @@
 <div class="login-content">
-<nz-card nzTitle="曝书 v0.1 alpha">
-<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请填写用户名！">
-      <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input formControlName="userName" placeholder="用户名/手机号/电子邮箱" />
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请填写密码！">
-      <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" placeholder="密码" />
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control>
-      <label nz-checkbox formControlName="remember">
-        <span>记住我</span>
-      </label>
-      <a class="login-form-forgot">忘记密码？</a>
-      <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
-      <a routerLink="../register">注册新用户</a>
-    </nz-form-control>
-  </nz-form-item>
-</form>
-</nz-card>
+  <nz-card class="prof">
+    <p>“曝书”平台是国家社科基金青年项目“技术赋能视阈下人文学者的数字学术需求及其图书馆服务策略研究（18CTQ006）的研究成果之一，软件登记号为2020SR0073783。</p>
+
+    <p>从项目研究的角度来讲，“曝书”平台有以下三个特点：</p>
+
+    <p>第一，它本身为人文学者开展数字人文研究提供了数据清洗、数据透视、聚类分词等一系列工具，这些工具能够满足基础的、入门性质的数字学术需求；</p>
+
+    <p>第二，它能够记录人文学者在本平台上的使用习惯和行动轨迹，是图书馆员和信息行为研究者探索人文学者的数字学术行为特征的实验性平台；</p>
+
+    <p>第三，也是最特别的一点，“曝书”平台本身的功能建设就是依据课题组对各类型人文学者的持续访谈形成的，尤其注重面向那些存在一定数字使用障碍的学者群体展开针对性的迭代工作。</p>
+  </nz-card>
+  <nz-card nzTitle="曝书 v0.99 内部版">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请填写用户名！">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="用户名/手机号/电子邮箱"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请填写密码！">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="密码"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="remember">
+            <span>记住我</span>
+          </label>
+          <a class="login-form-forgot">忘记密码？</a>
+          <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
+          <a routerLink="../register">注册新用户</a>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
 </div>
-<nz-footer>Created by 中山大学 <a><b>肖鹏博士团队</b></a> @ 2020 ShenZhen<br><a href="http://www.beian.miit.gov.cn">粤ICP备20035084号</a></nz-footer>
+<nz-footer>
+  <app-footer></app-footer>
+</nz-footer>
 
