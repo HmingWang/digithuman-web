@@ -16,6 +16,7 @@ import {TranslateComponent} from './translate/translate.component';
 import {ClusterComponent} from './cluster/cluster.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
+import {CleanAutoComponent} from './clean-auto/clean-auto.component';
 
 
 // @ts-ignore
@@ -40,7 +41,7 @@ const routes: Routes = [
         {path: 'cluster', component: ClusterComponent},
         {path: 'password', component: ChangePasswordComponent},
         {path: 'edituser', component: EditUserInfoComponent},
-
+        {path: 'autoclean', component: CleanAutoComponent},
       ]
     },
   ]
