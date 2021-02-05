@@ -26,4 +26,3 @@ export const FILESTORE_HEADER = [
   {field: 'encoding', header: '编码'},
   {field: 'uptime', header: '更新时间'},
 ];
-

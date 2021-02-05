@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FileStoreService} from '../../services/file-store.service';
 
 @Component({
   selector: 'app-file-manager',
@@ -8,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 export class FileManagerComponent implements OnInit {
   isVisibleFileUpload = false;
 
-  constructor() {
+  constructor(private fileStoreService: FileStoreService) {
   }
 
   ngOnInit() {

@@ -12,54 +12,27 @@
   </nz-breadcrumb>
 </div>
 
-
 <div>
   <nz-card>
-  <nz-table [nzNoResult]="">
+  <nz-table #basicTable [nzData]="this.operLogs">
     <thead>
     <tr>
+      <th>序号</th>
       <th>用户ID</th>
       <th>名称</th>
+      <th>操作时间</th>
       <th>操作类型</th>
       <th>操作说明</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>登陆</td>
-      <td>登陆系统</td>
-    </tr>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>上传</td>
-      <td>上传文件【论语.txt】</td>
-    </tr>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>上传</td>
-      <td>上传文件【中国近代史纲要.txt】</td>
-    </tr>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>分析</td>
-      <td>执行数据分析</td>
-    </tr>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>分析</td>
-      <td>执行文本聚类</td>
-    </tr>
-    <tr>
-      <td>whaim</td>
-      <td>王海明</td>
-      <td>退出</td>
-      <td>退出系统</td>
+    <tr *ngFor="let it of basicTable.data">
+      <td>{{it.id}}</td>
+      <td>{{it.usercode}}</td>
+      <td>{{it.username}}</td>
+      <td>{{it.opertime}}</td>
+      <td>{{it.opertype}}</td>
+      <td>{{it.operinfo}}</td>
     </tr>
     </tbody>
   </nz-table></nz-card>

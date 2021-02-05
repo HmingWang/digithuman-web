@@ -35,7 +35,7 @@
       <button nz-button (click)="showFileFeature(row.id,row.filename)"><i
         nz-icon nzType="line-chart"></i>透视
       </button>
-      <button nz-button nz-popconfirm nzTitle="确定要删除此文件吗？" (nzOnConfirm)="deleteFile(row.id)"><i nz-icon nzType="delete"></i>删除
+      <button nz-button nz-popconfirm nzPopconfirmTitle="确定要删除此文件吗？" (nzOnConfirm)="deleteFile(row.id)"><i nz-icon nzType="delete"></i>删除
       </button>
     </td>
   </tr>

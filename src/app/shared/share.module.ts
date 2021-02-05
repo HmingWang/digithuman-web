@@ -37,6 +37,7 @@ import {FooterComponent} from './footer/footer.component';
 import {NzResultModule} from 'ng-zorro-antd/result';
 import {NzInputNumberModule} from 'ng-zorro-antd/input-number'; // use this
 import * as echarts from 'echarts';
+import {NzPopconfirmModule} from 'ng-zorro-antd/popconfirm';
 
 
 const sharedComponents = [
@@ -76,6 +77,7 @@ const sharedModules = [
   NzTabsModule,
   NzResultModule,
   NzInputNumberModule,
+  NzPopconfirmModule,
   NgxEchartsModule.forRoot({
     echarts,
   }),
