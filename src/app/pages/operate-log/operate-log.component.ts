@@ -15,7 +15,7 @@ export class OperateLogComponent implements OnInit {
   operLog: OperLog;
 
   constructor(private operLogService: OperLogService,
-              private message: NzMessageService,) {
+              private message: NzMessageService, ) {
   }
 
   ngOnInit(): void {
