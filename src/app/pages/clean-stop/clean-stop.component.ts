@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
-import {FileFeatureService} from '../../services/file-feature.service';
 import {NzMessageService} from 'ng-zorro-antd/message';
-import {FileSegmentService} from "../../services/file-segment.service";
+import {FileSegmentService} from '../../services/file-segment.service';
 
 @Component({
   selector: 'app-clean-stop',
