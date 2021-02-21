@@ -26,7 +26,6 @@ export class OperateLogComponent implements OnInit {
     this.isSpanning = true;
     this.operLogService.getLogs().subscribe(it => {
       this.operLogs = it as OperLog[];
-      console.log(this.operLogs);
 
       this.operLogs.sort((a, b) => {
         if (a.id > b.id) {

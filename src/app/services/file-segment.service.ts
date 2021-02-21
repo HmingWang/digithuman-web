@@ -13,4 +13,12 @@ export class FileSegmentService {
   getFileSegment(id: number) {
     return this.http.get(BASE_URL + '/api/segment/' + id);
   }
+
+  getFileStopSegment(id: number) {
+    return this.http.get(BASE_URL + '/api/segment/stop/' + id);
+  }
+
+  getFileClean(id: number) {
+    return this.http.get(BASE_URL + '/api/segment/clean/' + id);
+  }
 }

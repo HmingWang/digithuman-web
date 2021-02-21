@@ -19,8 +19,7 @@ export class FileStoreService {
   }
 
   deleteFileById(id: number) {
-    console.log('delete url :' + BASE_URL + '/api/filestore/' + id);
-    return this.http.request('DELETE', BASE_URL + '/api/filestore/' + id);
+    return this.http.get( BASE_URL + '/api/filestore/del/' + id);
   }
 
 

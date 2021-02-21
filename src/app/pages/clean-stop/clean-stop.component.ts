@@ -3,6 +3,7 @@ import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
 import {FileFeatureService} from '../../services/file-feature.service';
 import {NzMessageService} from 'ng-zorro-antd/message';
+import {FileSegmentService} from "../../services/file-segment.service";
 
 @Component({
   selector: 'app-clean-stop',
@@ -13,9 +14,9 @@ export class CleanStopComponent implements OnInit {
 
   isSpanning = false;
   file: FileStore = new FileStore();
-  abstract: string;
+  contentClean: string;
   constructor(private fileStoreService: FileStoreService,
-              private fileFeatureService: FileFeatureService,
+              private fileSegmentService: FileSegmentService,
               private message: NzMessageService) {
   }
   ngOnInit(): void {
@@ -26,9 +27,9 @@ export class CleanStopComponent implements OnInit {
       this.file = f as FileStore;
     });
 
-    this.fileFeatureService.getAbstract(id).subscribe(s => {
+    this.fileSegmentService.getFileStopSegment(id).subscribe(s => {
       console.log(s);
-      this.abstract = (s as Array<string>).join('；');
+      this.contentClean = (s as Array<string>)[0];
     }, error => {
       console.log(error);
     }, () => {
