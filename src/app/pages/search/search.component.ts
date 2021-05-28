@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FileStoreService} from '../../services/file-store.service';
-import {FileStore} from '../../models/file-store';
+import {FileFeatureService} from '../../services/file-feature.service';
 
 @Component({
   selector: 'app-search',
@@ -11,28 +10,26 @@ export class SearchComponent implements OnInit {
   isSpinning = false;
   listOfData: any = [];
   cols: any = [];
-  isVisibleFileContent = false;
   fileName = '';
   content = '';
 
 
-  constructor(private fileStoreService: FileStoreService) {
+  constructor(private fileFeatureService: FileFeatureService) {
   }
 
   ngOnInit() {
   }
 
-  showFile(id: any, filename: string) {
-    // this.isVisibleFileContent = true;
-    // this.fileName = filename;
-    // this.fileStoreService.getFile(id).subscribe(res => {
-    //   if(res instanceof FileStore)
-    //   console.log('get file content:', res);
-    //   this.content = res['content'];
-    //   this.content = this.content.substr(0, 1000);
-    // }, err => {
-    //   console.log('get file content error. ', err);
-    // });
-    // console.log('2:' + this.content);
+  search() {
+    this.isSpinning = true;
+    this.fileFeatureService.getSearch(this.content).subscribe(
+      item => {
+        this.listOfData = item as { filename: string, sentence: string, index: string }[];
+        console.log(this.listOfData);
+        this.isSpinning = false;
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 }

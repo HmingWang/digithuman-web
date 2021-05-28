@@ -15,6 +15,10 @@ export class FileFeatureService {
     return this.http.get(BASE_URL + '/api/filefeature/' + id);
   }
 
+  getSearch(content: string) {
+    return this.http.get(BASE_URL + '/api/filefeature/search/' + content);
+  }
+
   getCharFrequency(id: number) {
     return this.http.get(BASE_URL + '/api/filefeature/charfreq/' + id);
   }
