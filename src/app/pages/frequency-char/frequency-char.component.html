@@ -22,9 +22,10 @@
     <nz-spin [nzSpinning]="isSpanning">
       <textarea disabled>{{this.file.content}}</textarea></nz-spin>
     <nz-divider></nz-divider>
+    <button nz-button (click)="exportExcel()">导出</button>
 
     <div nz-row>
-      <nz-table nz-col
+      <nz-table nz-col id="exportableTable"
                 nzSpan="8"
                 #basicTable
                 [nzData]="this.charFreqArray"

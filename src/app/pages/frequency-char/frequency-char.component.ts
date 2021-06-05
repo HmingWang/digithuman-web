@@ -3,7 +3,7 @@ import {FileStore} from '../../models/file-store';
 import {FileStoreService} from '../../services/file-store.service';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {FileFeatureService} from '../../services/file-feature.service';
-
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-frequency-char',
@@ -17,10 +17,25 @@ export class FrequencyCharComponent implements OnInit {
 
   charFreqArray: { name: string, value: bigint } [] = new Array<{ name: string, value: bigint }>();
 
+
   constructor(private fileStoreService: FileStoreService,
               private message: NzMessageService,
               private fileFeatureService: FileFeatureService) {
   }
+
+  exportExcel(): void{
+    const data =  this.charFreqArray.map(it => [it.name, it.value]);
+    const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(data);
+    const ws2: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(data);
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.utils.book_append_sheet(wb, ws2, 'Sheet2');
+    console.log(wb);
+    /* save to file */
+    XLSX.writeFile(wb, 'char-freq.xlsx');
+  }
+
 
   ngOnInit() {
   }
@@ -34,7 +49,6 @@ export class FrequencyCharComponent implements OnInit {
     }, () => {
       this.isSpanning = false;
     });
-
     this.charFreqArray = [];
     this.fileFeatureService.getCharFrequency(id).subscribe(it => {
       for (const i of it as Array<{ name: string, value: bigint }>) {
